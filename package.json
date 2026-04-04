@@ -33,7 +33,7 @@
     "gsap": "^3.12.5",
     "iron-session": "^8.0.4",
     "lucide-react": "^0.462.0",
-    "next": "15.0.3",
+    "next": "^15.5.14",
     "next-intl": "^3.25.1",
     "nodemailer": "^6.9.16",
     "ra-data-simple-rest": "^5.4.1",
