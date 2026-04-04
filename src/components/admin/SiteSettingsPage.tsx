@@ -148,7 +148,7 @@ export function SiteSettingsPage() {
 
       <Grid container spacing={3}>
         {Object.entries(SETTING_FIELDS).map(([group, config]) => (
-          <Grid item xs={12} md={6} key={group}>
+          <Grid size={{ xs: 12, md: 6 }} key={group}>
             <Card>
               <CardHeader
                 title={config.label}
@@ -159,7 +159,7 @@ export function SiteSettingsPage() {
               <CardContent>
                 <Grid container spacing={2}>
                   {config.fields.map((field, idx) => (
-                    <Grid item xs={12} key={`${field.key}-${field.path}-${idx}`}>
+                    <Grid size={{ xs: 12 }} key={`${field.key}-${field.path}-${idx}`}>
                       <TextField
                         label={field.label}
                         value={getFieldValue(field.key, field.path)}
