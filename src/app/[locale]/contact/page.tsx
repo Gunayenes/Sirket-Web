@@ -35,11 +35,11 @@ export default async function ContactPage({
   const mapUrl = contactSettings.contact_map_url as { url: string } | undefined;
 
   const CONTACT_INFO = [
-    { icon: MapPin, label: 'address', value: address?.display || 'Levent, İstanbul, Türkiye' },
-    { icon: Phone, label: 'phone', value: phone?.display || '+90 212 123 45 67', href: phone?.href || 'tel:+902121234567' },
-    { icon: Mail, label: 'email', value: email?.display || 'hello@techco.com', href: email?.href || 'mailto:hello@techco.com' },
-    { icon: Clock, label: 'hours', value: hours?.display || 'Mon–Fri 09:00–18:00' },
-  ] as const;
+    { icon: MapPin, label: 'address' as const, value: address?.display || 'Levent, İstanbul, Türkiye', href: undefined },
+    { icon: Phone, label: 'phone' as const, value: phone?.display || '+90 212 123 45 67', href: phone?.href || 'tel:+902121234567' },
+    { icon: Mail, label: 'email' as const, value: email?.display || 'hello@techco.com', href: email?.href || 'mailto:hello@techco.com' },
+    { icon: Clock, label: 'hours' as const, value: hours?.display || 'Mon–Fri 09:00–18:00', href: undefined },
+  ];
 
   return (
     <>
