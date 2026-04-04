@@ -260,7 +260,7 @@ export function AdminDashboard() {
       {/* Stats */}
       <Grid container spacing={2} sx={{ mb: 3 }}>
         {STAT_CONFIG.map(({ key, label, icon, gradient }) => (
-          <Grid item xs={6} sm={4} md={2} key={key}>
+          <Grid size={{ xs: 6, sm: 4, md: 2 }} key={key}>
             <StatCard
               label={label}
               value={data?.stats[key as keyof typeof data.stats] ?? 0}
@@ -275,7 +275,7 @@ export function AdminDashboard() {
       {/* Activity Section */}
       <Grid container spacing={3}>
         {/* Recent Messages */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card sx={{ borderRadius: 3, boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}>
             <CardContent sx={{ p: 0 }}>
               <Box sx={{
@@ -337,7 +337,7 @@ export function AdminDashboard() {
         </Grid>
 
         {/* Recent Quotes */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Card sx={{ borderRadius: 3, boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}>
             <CardContent sx={{ p: 0 }}>
               <Box sx={{
