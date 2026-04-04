@@ -13,7 +13,7 @@ function httpClient(url: string, options: fetchUtils.Options = {}) {
 
 export const dataProvider: DataProvider = {
   getList: async (resource, params) => {
-    const { page, perPage } = params.pagination;
+    const { page, perPage } = params.pagination ?? { page: 1, perPage: 25 };
     const url = `${apiUrl}/${resource}?_page=${page}&_perPage=${perPage}`;
     const { headers, json } = await httpClient(url);
     const contentRange = headers.get('content-range') || '';
@@ -34,7 +34,7 @@ export const dataProvider: DataProvider = {
   },
 
   getManyReference: async (resource, params) => {
-    const { page, perPage } = params.pagination;
+    const { page, perPage } = params.pagination ?? { page: 1, perPage: 25 };
     const url = `${apiUrl}/${resource}?_page=${page}&_perPage=${perPage}&${params.target}=${params.id}`;
     const { headers, json } = await httpClient(url);
     const contentRange = headers.get('content-range') || '';
