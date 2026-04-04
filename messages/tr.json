@@ -1,0 +1,259 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "about": "Hakkımızda",
+    "projects": "Projeler",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "getQuote": "Teklif Al"
+  },
+  "home": {
+    "hero": {
+      "badge": "Dijital Dönüşüm Ortağınız",
+      "title": "Fikirlerinizi\nDijital Deneyime\nDönüştürüyoruz",
+      "subtitle": "Modern teknolojiler ve yenilikçi tasarımla işletmenizi geleceğe taşıyan çözümler üretiyoruz. Uzman ekibimizle projenizi hayata geçirin.",
+      "cta": "Projenizi Başlatalım",
+      "secondary": "Projelerimizi İncele",
+      "scrollHint": "Aşağı kaydır",
+      "highlights": ["Ücretsiz Danışmanlık", "7/24 Destek", "Agile Süreç"],
+      "floatingProjects": "Tamamlanan Proje",
+      "floatingSuccess": "%98 Müşteri Memnuniyeti"
+    },
+    "stats": {
+      "projects": "Tamamlanan Proje",
+      "clients": "Mutlu Müşteri",
+      "years": "Yıllık Deneyim",
+      "team": "Uzman Ekip Üyesi"
+    },
+    "services": {
+      "badge": "Ne Yapıyoruz?",
+      "title": "Hizmetlerimiz",
+      "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir dijital çözümler sunuyoruz.",
+      "viewAll": "Tüm Hizmetleri Gör",
+      "learnMore": "Detaylı Bilgi"
+    },
+    "why": {
+      "title": "Neden Bizi Seçmelisiniz?",
+      "subtitle": "Teknoloji ve yaratıcılığı birleştirerek rakiplerinizin önüne geçmenizi sağlıyoruz.",
+      "experienceBadge": "Yıllık Deneyim",
+      "reasons": [
+        { "title": "Modern Teknoloji", "desc": "En güncel framework ve araçları kullanarak geleceğe hazır çözümler üretiyoruz." },
+        { "title": "Güvenli & Sağlam", "desc": "Güvenlik en önceliğimizdir. Kodlarımız güvenlik standartlarına tam uyumludur." },
+        { "title": "Uzun Vadeli Ortaklık", "desc": "Projeniz tamamlandıktan sonra da sürekli destek ve bakım hizmeti sunuyoruz." },
+        { "title": "Ölçeklenebilir Yapı", "desc": "İşletmeniz büyüdükçe sisteminiz de sorunsuzca ölçeklenecek şekilde tasarlıyoruz." },
+        { "title": "Zamanında Teslim", "desc": "Agile metodoloji ile çalışarak projelerinizi zamanında ve bütçe dahilinde teslim ediyoruz." },
+        { "title": "Kanıtlanmış Başarı", "desc": "150+ tamamlanmış proje ve %95+ müşteri memnuniyetiyle sonuç odaklı çalışıyoruz." }
+      ]
+    },
+    "projects": {
+      "badge": "Portföyümüz",
+      "title": "Öne Çıkan Projeler",
+      "subtitle": "Müşterilerimiz için hayata geçirdiğimiz başarılı projelerden seçkiler.",
+      "viewAll": "Tüm Projeleri Gör"
+    },
+    "process": {
+      "title": "Çalışma Sürecimiz",
+      "subtitle": "Şeffaf ve verimli bir süreçle projenizi hayata geçiriyoruz.",
+      "steps": [
+        { "title": "Keşif & Analiz", "desc": "İhtiyaçlarınızı ve hedeflerinizi derinlemesine anlıyoruz." },
+        { "title": "Strateji & Plan", "desc": "Özelleştirilmiş bir yol haritası oluşturuyoruz." },
+        { "title": "Tasarım & Geliştirme", "desc": "Modern araçlarla hayallerinizi koda dönüştürüyoruz." },
+        { "title": "Test & Lansman", "desc": "Kapsamlı testlerden sonra projenizi yayına alıyoruz." }
+      ]
+    },
+    "team": {
+      "title": "Ekibimiz",
+      "subtitle": "Alanında uzman, tutkulu profesyonellerden oluşan ekibimizle tanışın.",
+      "viewAll": "Ekibin Tamamını Gör"
+    },
+    "blog": {
+      "title": "Son Yazılar",
+      "subtitle": "Teknoloji ve dijital dünya hakkında güncel içerikler.",
+      "viewAll": "Tüm Yazıları Gör",
+      "readMore": "Devamını Oku"
+    },
+    "cta": {
+      "title": "Projenizi Birlikte Hayata Geçirelim",
+      "subtitle": "Dijital hedeflerinize ulaşmak için doğru ortakla çalışın. Ücretsiz danışmanlık için hemen iletişime geçin.",
+      "badge": "Başlamaya hazır mısınız?",
+      "primary": "Ücretsiz Danışmanlık",
+      "secondary": "Daha Fazla Bilgi"
+    },
+    "contact": {
+      "title": "Hemen İletişime Geçin",
+      "subtitle": "Sorularınız için buradayız. Projeleriniz hakkında konuşmak isterseniz bize ulaşın.",
+      "ctaButton": "İletişime Geçin"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Profesyonel Çözümler",
+      "title": "Hizmetlerimiz",
+      "subtitle": "İşletmenizin büyümesini destekleyen kapsamlı dijital çözümler. Her bir hizmetimiz, yılların deneyimi ve en güncel teknolojilerle şekillendirilmiştir."
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Hakkımızda",
+      "subtitle": "Teknoloji ve inovasyonla dolu yolculuğumuz."
+    },
+    "story": {
+      "title": "Hikayemiz",
+      "badge": "2018'den Bu Yana"
+    },
+    "mission": { "title": "Misyon & Vizyon" },
+    "values": { "title": "Değerlerimiz" },
+    "team": { "title": "Ekibimiz" },
+    "projectsDelivered": "Tamamlanan Proje",
+    "happyClients": "Mutlu Müşteri",
+    "yearsExperience": "Yıllık Deneyim",
+    "satisfaction": "Memnuniyet"
+  },
+  "projects": {
+    "hero": {
+      "title": "Projelerimiz",
+      "subtitle": "Müşterilerimiz için hayata geçirdiğimiz dijital çözümler."
+    },
+    "filters": {
+      "all": "Tümü",
+      "category": "Kategori",
+      "technology": "Teknoloji"
+    },
+    "viewProject": "Projeyi İncele"
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "subtitle": "Teknoloji, tasarım ve dijital dünya hakkında içerikler."
+    },
+    "readMore": "Devamını Oku",
+    "searchPlaceholder": "Yazılarda ara...",
+    "allCategories": "Tümü",
+    "allArticles": "Tüm Yazılar",
+    "searchResults": "için {count} sonuç bulundu",
+    "clearSearch": "Temizle",
+    "noArticles": "Henüz yazı yayınlanmamış.",
+    "articles": "yazı",
+    "categories": "Kategoriler",
+    "tags": "Etiketler",
+    "relatedPosts": "İlgili Yazılar",
+    "backToBlog": "Blog'a Dön",
+    "minuteRead": "dk okuma"
+  },
+  "contact": {
+    "hero": {
+      "title": "İletişim",
+      "subtitle": "Size yardımcı olmaktan mutluluk duyarız."
+    },
+    "form": {
+      "title": "Mesaj Gönderin",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "send": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız iletildi! En kısa sürede dönüş yapacağız.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+      "sendAnother": "Yeni Mesaj Gönder",
+      "namePlaceholder": "Adınız Soyadınız",
+      "emailPlaceholder": "ornek@mail.com",
+      "phonePlaceholder": "+90 500 000 00 00",
+      "subjectPlaceholder": "Proje hakkında bilgi",
+      "messagePlaceholder": "Projeniz hakkında bize bilgi verin..."
+    },
+    "quote": {
+      "title": "Teklif İsteyin",
+      "subtitle": "Projeniz hakkında bize bilgi verin, 24 saat içinde size özel bir teklif hazırlayalım.",
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "company": "Şirket Adı",
+      "budget": "Bütçe Aralığı",
+      "deadline": "Hedef Tarih",
+      "services": "İstenen Hizmetler",
+      "description": "Proje Açıklaması",
+      "send": "Teklif İste",
+      "success": "Teklif talebiniz alındı! 24 saat içinde size dönüş yapacağız.",
+      "sendAnother": "Yeni Teklif İste",
+      "namePlaceholder": "Adınız Soyadınız",
+      "emailPlaceholder": "ornek@mail.com",
+      "companyPlaceholder": "Şirket Adı",
+      "budgetPlaceholder": "₺50k - ₺100k",
+      "descriptionPlaceholder": "Projenizi detaylı bir şekilde açıklayın..."
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Çalışma Saatleri"
+    },
+    "validation": {
+      "nameRequired": "İsim gerekli (en az 2 karakter)",
+      "emailInvalid": "Geçerli bir e-posta adresi girin",
+      "subjectRequired": "Konu gerekli",
+      "messageRequired": "Mesaj en az 10 karakter olmalıdır",
+      "servicesRequired": "En az bir hizmet seçin",
+      "descriptionRequired": "Açıklama en az 20 karakter olmalıdır"
+    }
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "Hizmetlerimiz, çalışma sürecimiz ve teknik konular hakkında en çok sorulan soruların yanıtları.",
+    "categories": [
+      {
+        "title": "Genel Sorular",
+        "items": [
+          { "q": "TechCo hangi hizmetleri sunuyor?", "a": "Web geliştirme, mobil uygulama geliştirme, UI/UX tasarım, bulut çözümleri, e-ticaret, SEO optimizasyonu ve dijital dönüşüm danışmanlığı hizmetleri sunuyoruz." },
+          { "q": "Hangi teknolojileri kullanıyorsunuz?", "a": "React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, AWS, Azure ve daha birçok modern teknolojiyi projelerimizde aktif olarak kullanıyoruz." },
+          { "q": "Projeler ne kadar sürede tamamlanıyor?", "a": "Proje kapsamına göre değişmekle birlikte, basit web siteleri 2-4 hafta, orta ölçekli projeler 1-3 ay, büyük ölçekli projeler 3-6 ay arasında tamamlanmaktadır." },
+          { "q": "Ücretsiz danışmanlık sunuyor musunuz?", "a": "Evet, ilk görüşme ve proje analizi ücretsizdir. İhtiyaçlarınızı dinleyip size özel bir çözüm önerisi ve fiyat teklifi sunuyoruz." }
+        ]
+      },
+      {
+        "title": "Teknik Sorular",
+        "items": [
+          { "q": "Web sitemi mobil uyumlu yapıyor musunuz?", "a": "Evet, tüm projelerimiz responsive (mobil uyumlu) olarak geliştirilir. Mobil, tablet ve masaüstü cihazlarda mükemmel görünüm sağlanır." },
+          { "q": "SEO optimizasyonu hizmetinize dahil mi?", "a": "Evet, temel SEO optimizasyonu tüm web projelerimize dahildir. Teknik SEO, sayfa hızı optimizasyonu, meta etiketler ve structured data standart olarak uygulanır." },
+          { "q": "Mevcut web sitemi yenileyebilir misiniz?", "a": "Evet, mevcut sitenizi modern teknolojilerle yeniden tasarlayıp geliştirebiliriz. Veri kaybı yaşanmadan sorunsuz bir geçiş süreci sağlıyoruz." },
+          { "q": "Hosting ve domain hizmeti sunuyor musunuz?", "a": "Hosting altyapısı kurulumu ve yönetimi hizmetlerimiz arasındadır. AWS, Vercel veya tercih ettiğiniz platformda sitenizi yayına alıyoruz." }
+        ]
+      },
+      {
+        "title": "Ödeme ve Süreç",
+        "items": [
+          { "q": "Ödeme koşullarınız nedir?", "a": "Genellikle %40 başlangıç, %30 ara teslim ve %30 proje teslimi şeklinde ödeme planı uyguluyoruz. Taksit seçenekleri de mevcuttur." },
+          { "q": "Proje sonrası destek veriyor musunuz?", "a": "Evet, tüm projelerimizde 3 ay ücretsiz teknik destek ve bakım hizmeti sunuyoruz. Sonrasında aylık veya yıllık bakım paketleri mevcuttur." },
+          { "q": "Proje sürecini nasıl takip edebilirim?", "a": "Agile/Scrum metodolojisi ile çalışıyoruz. Haftalık sprint toplantıları ve demo sunumlarıyla projenizi şeffaf bir şekilde takip edebilirsiniz." }
+        ]
+      }
+    ]
+  },
+  "cookie": {
+    "message": "Web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz.",
+    "accept": "Kabul Et",
+    "decline": "Reddet",
+    "learnMore": "Daha Fazla Bilgi"
+  },
+  "footer": {
+    "tagline": "Dijital dünyada fark yaratıyoruz.",
+    "company": "Şirket",
+    "rights": "Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu.",
+    "notFound": "Sayfa Bulunamadı",
+    "notFoundDesc": "Aradığınız sayfa mevcut değil veya taşınmış olabilir. Ana sayfaya dönebilir veya bizimle iletişime geçebilirsiniz.",
+    "backHome": "Ana Sayfaya Dön",
+    "contactUs": "İletişime Geçin",
+    "learnMore": "Daha Fazla",
+    "viewAll": "Tümünü Gör",
+    "close": "Kapat",
+    "open": "Aç"
+  }
+}
