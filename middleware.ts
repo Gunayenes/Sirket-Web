@@ -57,7 +57,7 @@ export default async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    String.raw`/((?!_next|_vercel|.*\..*).*)`
+    String.raw`/((?!_next|_vercel|.*\..*).*)`,
     '/api/:path*',
   ],
 };
