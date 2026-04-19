@@ -4,7 +4,6 @@
     "services": "Hizmetler",
     "about": "Hakkımızda",
     "projects": "Projeler",
-    "blog": "Blog",
     "contact": "İletişim",
     "getQuote": "Teklif Al"
   },
@@ -12,19 +11,18 @@
     "hero": {
       "badge": "Dijital Dönüşüm Ortağınız",
       "title": "Fikirlerinizi\nDijital Deneyime\nDönüştürüyoruz",
-      "subtitle": "Modern teknolojiler ve yenilikçi tasarımla işletmenizi geleceğe taşıyan çözümler üretiyoruz. Uzman ekibimizle projenizi hayata geçirin.",
+      "subtitle": "Kurumsal web sitesi, e-ticaret, mobil uygulama, CRM/ERP, yapay zeka otomasyon ve özel yazılım çözümleri. Antalya merkezli uzman ekibimizle dijital projenizi hayata geçirin.",
       "cta": "Projenizi Başlatalım",
       "secondary": "Projelerimizi İncele",
       "scrollHint": "Aşağı kaydır",
-      "highlights": ["Ücretsiz Danışmanlık", "7/24 Destek", "Agile Süreç"],
+      "highlights": {"0": "Ücretsiz Danışmanlık", "1": "7/24 Destek", "2": "Agile Süreç"},
       "floatingProjects": "Tamamlanan Proje",
       "floatingSuccess": "%98 Müşteri Memnuniyeti"
     },
     "stats": {
       "projects": "Tamamlanan Proje",
       "clients": "Mutlu Müşteri",
-      "years": "Yıllık Deneyim",
-      "team": "Uzman Ekip Üyesi"
+      "years": "Yıllık Deneyim"
     },
     "services": {
       "badge": "Ne Yapıyoruz?",
@@ -37,14 +35,14 @@
       "title": "Neden Bizi Seçmelisiniz?",
       "subtitle": "Teknoloji ve yaratıcılığı birleştirerek rakiplerinizin önüne geçmenizi sağlıyoruz.",
       "experienceBadge": "Yıllık Deneyim",
-      "reasons": [
-        { "title": "Modern Teknoloji", "desc": "En güncel framework ve araçları kullanarak geleceğe hazır çözümler üretiyoruz." },
-        { "title": "Güvenli & Sağlam", "desc": "Güvenlik en önceliğimizdir. Kodlarımız güvenlik standartlarına tam uyumludur." },
-        { "title": "Uzun Vadeli Ortaklık", "desc": "Projeniz tamamlandıktan sonra da sürekli destek ve bakım hizmeti sunuyoruz." },
-        { "title": "Ölçeklenebilir Yapı", "desc": "İşletmeniz büyüdükçe sisteminiz de sorunsuzca ölçeklenecek şekilde tasarlıyoruz." },
-        { "title": "Zamanında Teslim", "desc": "Agile metodoloji ile çalışarak projelerinizi zamanında ve bütçe dahilinde teslim ediyoruz." },
-        { "title": "Kanıtlanmış Başarı", "desc": "150+ tamamlanmış proje ve %95+ müşteri memnuniyetiyle sonuç odaklı çalışıyoruz." }
-      ]
+      "reasons": {
+        "0": { "title": "Modern Teknoloji", "desc": "En güncel framework ve araçları kullanarak geleceğe hazır çözümler üretiyoruz." },
+        "1": { "title": "Güvenli & Sağlam", "desc": "Güvenlik en önceliğimizdir. Kodlarımız güvenlik standartlarına tam uyumludur." },
+        "2": { "title": "Uzun Vadeli Ortaklık", "desc": "Projeniz tamamlandıktan sonra da sürekli destek ve bakım hizmeti sunuyoruz." },
+        "3": { "title": "Ölçeklenebilir Yapı", "desc": "İşletmeniz büyüdükçe sisteminiz de sorunsuzca ölçeklenecek şekilde tasarlıyoruz." },
+        "4": { "title": "Zamanında Teslim", "desc": "Agile metodoloji ile çalışarak projelerinizi zamanında ve bütçe dahilinde teslim ediyoruz." },
+        "5": { "title": "Kanıtlanmış Başarı", "desc": "150+ tamamlanmış proje ve %95+ müşteri memnuniyetiyle sonuç odaklı çalışıyoruz." }
+      }
     },
     "projects": {
       "badge": "Portföyümüz",
@@ -55,23 +53,12 @@
     "process": {
       "title": "Çalışma Sürecimiz",
       "subtitle": "Şeffaf ve verimli bir süreçle projenizi hayata geçiriyoruz.",
-      "steps": [
-        { "title": "Keşif & Analiz", "desc": "İhtiyaçlarınızı ve hedeflerinizi derinlemesine anlıyoruz." },
-        { "title": "Strateji & Plan", "desc": "Özelleştirilmiş bir yol haritası oluşturuyoruz." },
-        { "title": "Tasarım & Geliştirme", "desc": "Modern araçlarla hayallerinizi koda dönüştürüyoruz." },
-        { "title": "Test & Lansman", "desc": "Kapsamlı testlerden sonra projenizi yayına alıyoruz." }
-      ]
-    },
-    "team": {
-      "title": "Ekibimiz",
-      "subtitle": "Alanında uzman, tutkulu profesyonellerden oluşan ekibimizle tanışın.",
-      "viewAll": "Ekibin Tamamını Gör"
-    },
-    "blog": {
-      "title": "Son Yazılar",
-      "subtitle": "Teknoloji ve dijital dünya hakkında güncel içerikler.",
-      "viewAll": "Tüm Yazıları Gör",
-      "readMore": "Devamını Oku"
+      "steps": {
+        "0": { "title": "Keşif & Analiz", "desc": "İhtiyaçlarınızı ve hedeflerinizi derinlemesine anlıyoruz." },
+        "1": { "title": "Strateji & Plan", "desc": "Özelleştirilmiş bir yol haritası oluşturuyoruz." },
+        "2": { "title": "Tasarım & Geliştirme", "desc": "Modern araçlarla hayallerinizi koda dönüştürüyoruz." },
+        "3": { "title": "Test & Lansman", "desc": "Kapsamlı testlerden sonra projenizi yayına alıyoruz." }
+      }
     },
     "cta": {
       "title": "Projenizi Birlikte Hayata Geçirelim",
@@ -90,13 +77,13 @@
     "hero": {
       "badge": "Profesyonel Çözümler",
       "title": "Hizmetlerimiz",
-      "subtitle": "İşletmenizin büyümesini destekleyen kapsamlı dijital çözümler. Her bir hizmetimiz, yılların deneyimi ve en güncel teknolojilerle şekillendirilmiştir."
+      "subtitle": "Kurumsal web sitesi, e-ticaret, mobil uygulama, özel yazılım, CRM/ERP, yapay zeka otomasyon, API geliştirme, veri analizi ve teknik destek. İşletmenizin dijital dönüşümünü uçtan uca yönetiyoruz."
     }
   },
   "about": {
     "hero": {
       "title": "Hakkımızda",
-      "subtitle": "Teknoloji ve inovasyonla dolu yolculuğumuz."
+      "subtitle": "Antalya merkezli profesyonel yazılım şirketi. Kurumsal web, mobil uygulama, CRM/ERP ve yapay zeka alanlarında uzman ekibimizle tanışın."
     },
     "story": {
       "title": "Hikayemiz",
@@ -104,7 +91,6 @@
     },
     "mission": { "title": "Misyon & Vizyon" },
     "values": { "title": "Değerlerimiz" },
-    "team": { "title": "Ekibimiz" },
     "projectsDelivered": "Tamamlanan Proje",
     "happyClients": "Mutlu Müşteri",
     "yearsExperience": "Yıllık Deneyim",
@@ -113,7 +99,7 @@
   "projects": {
     "hero": {
       "title": "Projelerimiz",
-      "subtitle": "Müşterilerimiz için hayata geçirdiğimiz dijital çözümler."
+      "subtitle": "Kurumsal web sitesi, e-ticaret platformu, mobil uygulama ve özel yazılım projelerimizi inceleyin. Başarılı dijital dönüşüm hikayeleri."
     },
     "filters": {
       "all": "Tümü",
@@ -122,37 +108,20 @@
     },
     "viewProject": "Projeyi İncele"
   },
-  "blog": {
-    "hero": {
-      "title": "Blog",
-      "subtitle": "Teknoloji, tasarım ve dijital dünya hakkında içerikler."
-    },
-    "readMore": "Devamını Oku",
-    "searchPlaceholder": "Yazılarda ara...",
-    "allCategories": "Tümü",
-    "allArticles": "Tüm Yazılar",
-    "searchResults": "için {count} sonuç bulundu",
-    "clearSearch": "Temizle",
-    "noArticles": "Henüz yazı yayınlanmamış.",
-    "articles": "yazı",
-    "categories": "Kategoriler",
-    "tags": "Etiketler",
-    "relatedPosts": "İlgili Yazılar",
-    "backToBlog": "Blog'a Dön",
-    "minuteRead": "dk okuma"
-  },
   "contact": {
     "hero": {
       "title": "İletişim",
-      "subtitle": "Size yardımcı olmaktan mutluluk duyarız."
+      "subtitle": "Yazılım projeleriniz için ücretsiz danışmanlık ve teklif alın. Kurumsal web, mobil uygulama, CRM/ERP ve yapay zeka çözümlerimiz hakkında bilgi edinin."
     },
     "form": {
-      "title": "Mesaj Gönderin",
+      "title": "İletişim & Teklif Formu",
       "name": "Ad Soyad",
       "email": "E-posta",
       "phone": "Telefon",
-      "subject": "Konu",
-      "message": "Mesajınız",
+      "company": "Şirket Adı",
+      "budget": "Bütçe Aralığı",
+      "services": "İlgilendiğiniz Hizmetler",
+      "message": "Mesajınız / Proje Detayları",
       "send": "Gönder",
       "sending": "Gönderiliyor...",
       "success": "Mesajınız iletildi! En kısa sürede dönüş yapacağız.",
@@ -161,7 +130,8 @@
       "namePlaceholder": "Adınız Soyadınız",
       "emailPlaceholder": "ornek@mail.com",
       "phonePlaceholder": "+90 500 000 00 00",
-      "subjectPlaceholder": "Proje hakkında bilgi",
+      "companyPlaceholder": "Şirket Adı (opsiyonel)",
+      "budgetPlaceholder": "₺50k - ₺100k (opsiyonel)",
       "messagePlaceholder": "Projeniz hakkında bize bilgi verin..."
     },
     "quote": {
@@ -201,35 +171,36 @@
   },
   "faq": {
     "title": "Sıkça Sorulan Sorular",
-    "subtitle": "Hizmetlerimiz, çalışma sürecimiz ve teknik konular hakkında en çok sorulan soruların yanıtları.",
-    "categories": [
-      {
-        "title": "Genel Sorular",
-        "items": [
-          { "q": "TechCo hangi hizmetleri sunuyor?", "a": "Web geliştirme, mobil uygulama geliştirme, UI/UX tasarım, bulut çözümleri, e-ticaret, SEO optimizasyonu ve dijital dönüşüm danışmanlığı hizmetleri sunuyoruz." },
-          { "q": "Hangi teknolojileri kullanıyorsunuz?", "a": "React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, AWS, Azure ve daha birçok modern teknolojiyi projelerimizde aktif olarak kullanıyoruz." },
-          { "q": "Projeler ne kadar sürede tamamlanıyor?", "a": "Proje kapsamına göre değişmekle birlikte, basit web siteleri 2-4 hafta, orta ölçekli projeler 1-3 ay, büyük ölçekli projeler 3-6 ay arasında tamamlanmaktadır." },
-          { "q": "Ücretsiz danışmanlık sunuyor musunuz?", "a": "Evet, ilk görüşme ve proje analizi ücretsizdir. İhtiyaçlarınızı dinleyip size özel bir çözüm önerisi ve fiyat teklifi sunuyoruz." }
-        ]
+    "subtitle": "Kurumsal web sitesi, mobil uygulama, CRM/ERP, yapay zeka ve yazılım hizmetlerimiz hakkında sıkça sorulan sorular.",
+    "categories": {
+      "0": {
+        "title": "Hizmetlerimiz Hakkında",
+        "items": {
+          "0": { "q": "Dahi Teknoloji hangi hizmetleri sunuyor?", "a": "Kurumsal web sitesi & e-ticaret, mobil uygulama geliştirme, özel yazılım & iş yönetim sistemleri, CRM/ERP çözümleri, yapay zeka & otomasyon, API & backend geliştirme, veri analizi & raporlama ve 7/24 teknik destek & bakım hizmetleri sunuyoruz." },
+          "1": { "q": "Hangi teknolojileri kullanıyorsunuz?", "a": "React, Next.js, TypeScript, React Native, Flutter, Node.js, Python, PostgreSQL, GraphQL, REST API, Docker, AWS, Azure ve daha birçok modern teknolojiyi projelerimizde aktif olarak kullanıyoruz." },
+          "2": { "q": "E-ticaret sitesi geliştirebilir misiniz?", "a": "Evet, ödeme sistemleri entegrasyonu, stok yönetimi, sipariş takibi ve kargo entegrasyonu dahil kapsamlı e-ticaret platformları geliştiriyoruz. Özel tasarım veya hazır altyapılar üzerinde çalışabiliyoruz." },
+          "3": { "q": "CRM veya ERP sistemi kurabilir misiniz?", "a": "Evet, işletmenize özel CRM ve ERP çözümleri geliştiriyoruz. Müşteri yönetimi, satış takibi, kaynak planlaması ve detaylı raporlama modülleri içeren sistemler kuruyoruz." }
+        }
       },
-      {
+      "1": {
         "title": "Teknik Sorular",
-        "items": [
-          { "q": "Web sitemi mobil uyumlu yapıyor musunuz?", "a": "Evet, tüm projelerimiz responsive (mobil uyumlu) olarak geliştirilir. Mobil, tablet ve masaüstü cihazlarda mükemmel görünüm sağlanır." },
-          { "q": "SEO optimizasyonu hizmetinize dahil mi?", "a": "Evet, temel SEO optimizasyonu tüm web projelerimize dahildir. Teknik SEO, sayfa hızı optimizasyonu, meta etiketler ve structured data standart olarak uygulanır." },
-          { "q": "Mevcut web sitemi yenileyebilir misiniz?", "a": "Evet, mevcut sitenizi modern teknolojilerle yeniden tasarlayıp geliştirebiliriz. Veri kaybı yaşanmadan sorunsuz bir geçiş süreci sağlıyoruz." },
-          { "q": "Hosting ve domain hizmeti sunuyor musunuz?", "a": "Hosting altyapısı kurulumu ve yönetimi hizmetlerimiz arasındadır. AWS, Vercel veya tercih ettiğiniz platformda sitenizi yayına alıyoruz." }
-        ]
+        "items": {
+          "0": { "q": "Yapay zeka ve otomasyon çözümleri sunuyor musunuz?", "a": "Evet, chatbot & akıllı asistan, iş süreçleri otomasyonu, makine öğrenmesi modelleri ve doğal dil işleme (NLP) çözümleri geliştiriyoruz. Yapay zeka ile iş süreçlerinizi hızlandırıyoruz." },
+          "1": { "q": "API ve backend geliştirme hizmeti veriyor musunuz?", "a": "Evet, RESTful ve GraphQL API'ler, microservice mimarileri, Node.js ve Python tabanlı güvenli ve ölçeklenebilir backend altyapıları geliştiriyoruz." },
+          "2": { "q": "Mobil uygulama hangi platformlarda çalışır?", "a": "React Native ve Flutter ile hem iOS hem Android platformlarında çalışan yüksek performanslı mobil uygulamalar geliştiriyoruz. Tek kod tabanıyla her iki platformu destekliyoruz." },
+          "3": { "q": "SEO optimizasyonu hizmetinize dahil mi?", "a": "Evet, temel SEO optimizasyonu tüm web projelerimize dahildir. Teknik SEO, sayfa hızı optimizasyonu, meta etiketler, structured data ve Google arama sonuçları uyumluluğu standart olarak uygulanır." }
+        }
       },
-      {
-        "title": "Ödeme ve Süreç",
-        "items": [
-          { "q": "Ödeme koşullarınız nedir?", "a": "Genellikle %40 başlangıç, %30 ara teslim ve %30 proje teslimi şeklinde ödeme planı uyguluyoruz. Taksit seçenekleri de mevcuttur." },
-          { "q": "Proje sonrası destek veriyor musunuz?", "a": "Evet, tüm projelerimizde 3 ay ücretsiz teknik destek ve bakım hizmeti sunuyoruz. Sonrasında aylık veya yıllık bakım paketleri mevcuttur." },
-          { "q": "Proje sürecini nasıl takip edebilirim?", "a": "Agile/Scrum metodolojisi ile çalışıyoruz. Haftalık sprint toplantıları ve demo sunumlarıyla projenizi şeffaf bir şekilde takip edebilirsiniz." }
-        ]
+      "2": {
+        "title": "Süreç ve Destek",
+        "items": {
+          "0": { "q": "Projeler ne kadar sürede tamamlanıyor?", "a": "Proje kapsamına göre değişmekle birlikte, kurumsal web siteleri 2-4 hafta, e-ticaret ve mobil uygulamalar 1-3 ay, CRM/ERP ve özel yazılım projeleri 3-6 ay arasında tamamlanmaktadır." },
+          "1": { "q": "Proje sonrası teknik destek veriyor musunuz?", "a": "Evet, tüm projelerimizde 3 ay ücretsiz teknik destek ve bakım hizmeti sunuyoruz. Sonrasında 7/24 teknik destek, güvenlik güncellemeleri, performans optimizasyonu ve sunucu yönetimi içeren bakım paketlerimiz mevcuttur." },
+          "2": { "q": "Ücretsiz danışmanlık sunuyor musunuz?", "a": "Evet, ilk görüşme ve proje analizi ücretsizdir. İhtiyaçlarınızı dinleyip size özel bir çözüm önerisi ve fiyat teklifi sunuyoruz." },
+          "3": { "q": "Veri analizi ve raporlama hizmeti neler içeriyor?", "a": "Veri görselleştirme, iş zekası (BI) dashboard'ları, özel raporlama sistemleri ve gerçek zamanlı analiz panelleri kuruyoruz. Verilerinizi anlamlı içgörülere dönüştürüyoruz." }
+        }
       }
-    ]
+    }
   },
   "cookie": {
     "message": "Web sitemizde deneyiminizi geliştirmek için çerezler kullanıyoruz.",

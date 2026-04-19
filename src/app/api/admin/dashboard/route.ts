@@ -9,8 +9,6 @@ export async function GET() {
   const [
     totalServices,
     totalProjects,
-    totalPosts,
-    totalTeam,
     unreadMessages,
     pendingQuotes,
     recentMessages,
@@ -18,8 +16,6 @@ export async function GET() {
   ] = await Promise.all([
     prisma.service.count(),
     prisma.project.count(),
-    prisma.blogPost.count({ where: { isPublished: true } }),
-    prisma.teamMember.count({ where: { isActive: true } }),
     prisma.contactMessage.count({ where: { status: 'UNREAD' } }),
     prisma.quoteRequest.count({ where: { status: 'PENDING' } }),
     prisma.contactMessage.findMany({ orderBy: { createdAt: 'desc' }, take: 5 }),
@@ -27,7 +23,7 @@ export async function GET() {
   ]);
 
   return NextResponse.json({
-    stats: { totalServices, totalProjects, totalPosts, totalTeam, unreadMessages, pendingQuotes },
+    stats: { totalServices, totalProjects, unreadMessages, pendingQuotes },
     recentMessages,
     recentQuotes,
   });

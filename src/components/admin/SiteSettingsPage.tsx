@@ -21,19 +21,19 @@ interface SettingItem {
 
 const SETTING_FIELDS: Record<string, { label: string; fields: { key: string; label: string; path: string }[] }> = {
   contact: {
-    label: 'Contact Information',
+    label: 'İletişim Bilgileri',
     fields: [
-      { key: 'contact_address', label: 'Address', path: 'display' },
-      { key: 'contact_phone', label: 'Phone (Display)', path: 'display' },
-      { key: 'contact_phone', label: 'Phone (Link)', path: 'href' },
-      { key: 'contact_email', label: 'Email (Display)', path: 'display' },
-      { key: 'contact_email', label: 'Email (Link)', path: 'href' },
-      { key: 'contact_hours', label: 'Business Hours', path: 'display' },
-      { key: 'contact_map_url', label: 'Google Maps Embed URL', path: 'url' },
+      { key: 'contact_address', label: 'Adres', path: 'display' },
+      { key: 'contact_phone', label: 'Telefon (Görünen Metin)', path: 'display' },
+      { key: 'contact_phone', label: 'Telefon (Bağlantı / tel:)', path: 'href' },
+      { key: 'contact_email', label: 'E-posta (Görünen Metin)', path: 'display' },
+      { key: 'contact_email', label: 'E-posta (Bağlantı / mailto:)', path: 'href' },
+      { key: 'contact_hours', label: 'Çalışma Saatleri', path: 'display' },
+      { key: 'contact_map_url', label: 'Google Maps Gömme URL', path: 'url' },
     ],
   },
   social: {
-    label: 'Social Media Links',
+    label: 'Sosyal Medya Bağlantıları',
     fields: [
       { key: 'social_linkedin', label: 'LinkedIn URL', path: 'url' },
       { key: 'social_twitter', label: 'Twitter URL', path: 'url' },
@@ -42,26 +42,24 @@ const SETTING_FIELDS: Record<string, { label: string; fields: { key: string; lab
     ],
   },
   branding: {
-    label: 'Branding',
+    label: 'Marka ve Logo',
     fields: [
-      { key: 'company_name', label: 'Company Name', path: 'name' },
-      { key: 'company_name', label: 'Logo Text', path: 'logoText' },
-      { key: 'whatsapp', label: 'WhatsApp Phone', path: 'phone' },
-      { key: 'whatsapp', label: 'WhatsApp Message (TR)', path: 'messageTr' },
-      { key: 'whatsapp', label: 'WhatsApp Message (EN)', path: 'messageEn' },
+      { key: 'company_name', label: 'Şirket Adı', path: 'name' },
+      { key: 'company_name', label: 'Logo Metni', path: 'logoText' },
+      { key: 'whatsapp', label: 'WhatsApp Numarası', path: 'phone' },
+      { key: 'whatsapp', label: 'WhatsApp Mesajı (Türkçe)', path: 'messageTr' },
+      { key: 'whatsapp', label: 'WhatsApp Mesajı (İngilizce)', path: 'messageEn' },
     ],
   },
   stats: {
-    label: 'Statistics',
+    label: 'İstatistikler (Sayılar)',
     fields: [
-      { key: 'stats_projects', label: 'Projects Count', path: 'value' },
-      { key: 'stats_projects', label: 'Projects Suffix', path: 'suffix' },
-      { key: 'stats_clients', label: 'Clients Count', path: 'value' },
-      { key: 'stats_clients', label: 'Clients Suffix', path: 'suffix' },
-      { key: 'stats_years', label: 'Years Count', path: 'value' },
-      { key: 'stats_years', label: 'Years Suffix', path: 'suffix' },
-      { key: 'stats_team', label: 'Team Count', path: 'value' },
-      { key: 'stats_team', label: 'Team Suffix', path: 'suffix' },
+      { key: 'stats_projects', label: 'Proje Sayısı', path: 'value' },
+      { key: 'stats_projects', label: 'Proje Eki (örn: +)', path: 'suffix' },
+      { key: 'stats_clients', label: 'Müşteri Sayısı', path: 'value' },
+      { key: 'stats_clients', label: 'Müşteri Eki (örn: +)', path: 'suffix' },
+      { key: 'stats_years', label: 'Deneyim Yılı', path: 'value' },
+      { key: 'stats_years', label: 'Yıl Eki (örn: +)', path: 'suffix' },
     ],
   },
 };
@@ -76,7 +74,7 @@ export function SiteSettingsPage() {
     fetch('/api/admin/settings')
       .then(r => r.json())
       .then((data: SettingItem[]) => { setSettings(data); setLoading(false); })
-      .catch(() => { notify('Failed to load settings', { type: 'error' }); setLoading(false); });
+      .catch(() => { notify('Ayarlar yüklenemedi', { type: 'error' }); setLoading(false); });
   }, [notify]);
 
   const getFieldValue = (key: string, path: string): string => {
@@ -112,12 +110,12 @@ export function SiteSettingsPage() {
         body: JSON.stringify(payload),
       });
       if (res.ok) {
-        notify('Settings saved successfully', { type: 'success' });
+        notify('Ayarlar başarıyla kaydedildi', { type: 'success' });
       } else {
-        notify('Failed to save settings', { type: 'error' });
+        notify('Ayarlar kaydedilemedi', { type: 'error' });
       }
     } catch {
-      notify('Failed to save settings', { type: 'error' });
+      notify('Ayarlar kaydedilemedi', { type: 'error' });
     }
     setSaving(false);
   };
@@ -132,9 +130,9 @@ export function SiteSettingsPage() {
 
   return (
     <Box>
-      <Title title="Site Settings" />
+      <Title title="Site Ayarları" />
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
-        <Typography variant="h5" fontWeight={700}>Site Settings</Typography>
+        <Typography variant="h5" fontWeight={700}>Site Ayarları</Typography>
         <Button
           variant="contained"
           startIcon={saving ? <CircularProgress size={18} color="inherit" /> : <Save />}
@@ -142,7 +140,7 @@ export function SiteSettingsPage() {
           disabled={saving}
           sx={{ borderRadius: 2, textTransform: 'none', fontWeight: 600, px: 3 }}
         >
-          {saving ? 'Saving...' : 'Save All Settings'}
+          {saving ? 'Kaydediliyor...' : 'Tüm Ayarları Kaydet'}
         </Button>
       </Box>
 

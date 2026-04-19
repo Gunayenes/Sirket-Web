@@ -1,9 +1,11 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { unstable_cache } from 'next/cache';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { routing } from '@/i18n/routing';
+import { prisma } from '@/lib/prisma';
 import { getSiteSettings } from '@/lib/settings';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -16,6 +18,17 @@ import { BackToTop } from '@/components/layout/BackToTop';
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+const getNavServices = unstable_cache(
+  async (locale: string) =>
+    prisma.service.findMany({
+      where: { isActive: true },
+      orderBy: { order: 'asc' },
+      include: { translations: { where: { locale } } },
+    }),
+  ['nav-services'],
+  { tags: ['services'], revalidate: 300 },
+);
 
 export default async function LocaleLayout({
   children,
@@ -30,12 +43,19 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const [messages, contactSettings, socialSettings, brandingSettings] = await Promise.all([
+  const [messages, contactSettings, socialSettings, brandingSettings, services] = await Promise.all([
     getMessages(),
     getSiteSettings('contact'),
     getSiteSettings('social'),
     getSiteSettings('branding'),
+    getNavServices(locale),
   ]);
+
+  const serviceLinks = services.map(s => ({
+    slug: s.slug,
+    title: s.translations[0]?.title || s.slug,
+    icon: s.icon,
+  }));
 
   const whatsapp = brandingSettings.whatsapp as { phone?: string; messageTr?: string } | undefined;
   const whatsappPhone = whatsapp?.phone || '+905001234567';
@@ -49,15 +69,15 @@ export default async function LocaleLayout({
   };
 
   const contactInfo = {
-    address: (contactSettings.contact_address as { display?: string })?.display || 'Levent, İstanbul, Türkiye',
+    address: (contactSettings.contact_address as { display?: string })?.display || 'Muratpaşa, Antalya, Türkiye',
     phone: contactSettings.contact_phone as { display?: string; href?: string } || { display: '+90 212 123 45 67', href: 'tel:+902121234567' },
-    email: contactSettings.contact_email as { display?: string; href?: string } || { display: 'hello@techco.com', href: 'mailto:hello@techco.com' },
+    email: contactSettings.contact_email as { display?: string; href?: string } || { display: 'hello@dahiteknoloji.com', href: 'mailto:hello@dahiteknoloji.com' },
   };
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <ScrollProgress />
-      <Header />
+      <Header services={serviceLinks} />
       <main><PageTransition>{children}</PageTransition></main>
       <Footer socialLinks={socialLinks} contactInfo={contactInfo} />
       <WhatsAppButton phone={whatsappPhone} message={whatsappMessage} />

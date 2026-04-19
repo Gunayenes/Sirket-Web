@@ -9,26 +9,26 @@ async function main() {
   // Admin user
   const hashedPw = await bcrypt.hash('admin123456', 12);
   await prisma.user.upsert({
-    where: { email: 'admin@techco.com' },
+    where: { email: 'admin@dahiteknoloji.com' },
     update: {},
     create: {
-      email: 'admin@techco.com',
+      email: 'admin@dahiteknoloji.com',
       password: hashedPw,
       name: 'Super Admin',
       role: 'SUPER_ADMIN',
     },
   });
-  console.log('✅ Admin user created: admin@techco.com / admin123456');
+  console.log('✅ Admin user created: admin@dahiteknoloji.com / admin123456');
 
   // Services
   const services = [
     {
-      slug: 'web-development',
-      icon: 'Code2',
+      slug: 'web-ecommerce',
+      icon: 'Globe',
       order: 1,
       translations: [
-        { locale: 'tr', title: 'Web Geliştirme', description: 'Modern, hızlı ve ölçeklenebilir web uygulamaları geliştiriyoruz.', features: ['React/Next.js', 'TypeScript', 'RESTful API', 'Responsive Design'], ctaText: 'Hemen Başlayalım' },
-        { locale: 'en', title: 'Web Development', description: 'We build modern, fast, and scalable web applications.', features: ['React/Next.js', 'TypeScript', 'RESTful API', 'Responsive Design'], ctaText: 'Get Started' },
+        { locale: 'tr', title: 'Kurumsal Web & E-Ticaret Çözümleri', description: 'Markanızı dijitale taşıyan kurumsal web siteleri ve yüksek performanslı e-ticaret platformları geliştiriyoruz.', features: ['Kurumsal Web Sitesi', 'E-Ticaret Platformu', 'SEO Uyumlu Altyapı', 'Responsive Tasarım'], ctaText: 'Teklif Al' },
+        { locale: 'en', title: 'Corporate Web & E-Commerce Solutions', description: 'We build corporate websites and high-performance e-commerce platforms that bring your brand to the digital world.', features: ['Corporate Website', 'E-Commerce Platform', 'SEO-Friendly Infrastructure', 'Responsive Design'], ctaText: 'Get a Quote' },
       ],
     },
     {
@@ -36,44 +36,62 @@ async function main() {
       icon: 'Smartphone',
       order: 2,
       translations: [
-        { locale: 'tr', title: 'Mobil Uygulama', description: 'iOS ve Android için yüksek performanslı mobil uygulamalar.', features: ['React Native', 'Flutter', 'App Store Deploy', 'Push Notifications'], ctaText: 'Teklif Al' },
-        { locale: 'en', title: 'Mobile Apps', description: 'High-performance mobile applications for iOS and Android.', features: ['React Native', 'Flutter', 'App Store Deploy', 'Push Notifications'], ctaText: 'Get a Quote' },
+        { locale: 'tr', title: 'Mobil Uygulama Geliştirme', description: 'iOS ve Android için kullanıcı dostu, yüksek performanslı mobil uygulamalar geliştiriyoruz.', features: ['React Native', 'Flutter', 'iOS & Android', 'Push Notifications'], ctaText: 'Teklif Al' },
+        { locale: 'en', title: 'Mobile App Development', description: 'We develop user-friendly, high-performance mobile apps for iOS and Android.', features: ['React Native', 'Flutter', 'iOS & Android', 'Push Notifications'], ctaText: 'Get a Quote' },
       ],
     },
     {
-      slug: 'ui-ux-design',
-      icon: 'Palette',
+      slug: 'custom-software',
+      icon: 'Code2',
       order: 3,
       translations: [
-        { locale: 'tr', title: 'UI/UX Tasarım', description: 'Kullanıcı deneyimini ön planda tutan estetik arayüzler tasarlıyoruz.', features: ['Figma', 'Prototyping', 'User Research', 'Design Systems'], ctaText: 'Portföyü İncele' },
-        { locale: 'en', title: 'UI/UX Design', description: 'We design aesthetic interfaces that prioritize user experience.', features: ['Figma', 'Prototyping', 'User Research', 'Design Systems'], ctaText: 'View Portfolio' },
+        { locale: 'tr', title: 'Özel Yazılım & İş Yönetim Sistemleri', description: 'İş süreçlerinize özel yazılım çözümleri ve iş yönetim sistemleri geliştiriyoruz.', features: ['İş Süreç Otomasyonu', 'Özel Panel & Dashboard', 'Stok & Sipariş Yönetimi', 'Entegrasyon Çözümleri'], ctaText: 'Hemen Başlayalım' },
+        { locale: 'en', title: 'Custom Software & Business Management', description: 'We develop custom software solutions and business management systems tailored to your workflows.', features: ['Business Process Automation', 'Custom Dashboards', 'Inventory & Order Management', 'Integration Solutions'], ctaText: 'Get Started' },
       ],
     },
     {
-      slug: 'cloud-solutions',
-      icon: 'Cloud',
+      slug: 'crm-erp',
+      icon: 'Database',
       order: 4,
       translations: [
-        { locale: 'tr', title: 'Cloud Çözümleri', description: 'AWS, GCP ve Azure üzerinde ölçeklenebilir bulut mimarileri.', features: ['AWS/GCP/Azure', 'Kubernetes', 'CI/CD', 'Monitoring'], ctaText: 'Danışmanlık Al' },
-        { locale: 'en', title: 'Cloud Solutions', description: 'Scalable cloud architectures on AWS, GCP, and Azure.', features: ['AWS/GCP/Azure', 'Kubernetes', 'CI/CD', 'Monitoring'], ctaText: 'Get Consulting' },
+        { locale: 'tr', title: 'CRM / ERP Çözümleri', description: 'Müşteri ilişkileri ve kurumsal kaynak planlaması için kapsamlı CRM/ERP sistemleri kuruyoruz.', features: ['Müşteri Yönetimi', 'Satış Takibi', 'Kaynak Planlaması', 'Raporlama & Analitik'], ctaText: 'Demo Talep Et' },
+        { locale: 'en', title: 'CRM / ERP Solutions', description: 'We implement comprehensive CRM/ERP systems for customer relationship and enterprise resource planning.', features: ['Customer Management', 'Sales Tracking', 'Resource Planning', 'Reporting & Analytics'], ctaText: 'Request a Demo' },
       ],
     },
     {
-      slug: 'seo-marketing',
-      icon: 'TrendingUp',
+      slug: 'ai-automation',
+      icon: 'Bot',
       order: 5,
       translations: [
-        { locale: 'tr', title: 'SEO & Pazarlama', description: 'Organik trafiği artıran SEO stratejileri ve dijital pazarlama.', features: ['Technical SEO', 'Content Strategy', 'Analytics', 'Performance'], ctaText: 'Ücretsiz Analiz' },
-        { locale: 'en', title: 'SEO & Marketing', description: 'SEO strategies and digital marketing that boost organic traffic.', features: ['Technical SEO', 'Content Strategy', 'Analytics', 'Performance'], ctaText: 'Free Analysis' },
+        { locale: 'tr', title: 'Yapay Zeka & Otomasyon Sistemleri', description: 'Yapay zeka destekli otomasyon çözümleriyle iş süreçlerinizi hızlandırın ve verimliliğinizi artırın.', features: ['Chatbot & Asistan', 'Süreç Otomasyonu', 'Makine Öğrenmesi', 'Doğal Dil İşleme'], ctaText: 'Keşfet' },
+        { locale: 'en', title: 'AI & Automation Systems', description: 'Accelerate your business processes and boost efficiency with AI-powered automation solutions.', features: ['Chatbot & Assistant', 'Process Automation', 'Machine Learning', 'Natural Language Processing'], ctaText: 'Explore' },
       ],
     },
     {
-      slug: 'consulting',
-      icon: 'MessageSquare',
+      slug: 'api-backend',
+      icon: 'Server',
       order: 6,
       translations: [
-        { locale: 'tr', title: 'Teknoloji Danışmanlığı', description: 'Dijital dönüşüm sürecinizde stratejik rehberlik sağlıyoruz.', features: ['Tech Strategy', 'Architecture Review', 'Team Augmentation', 'Digital Transformation'], ctaText: 'Görüşme Planla' },
-        { locale: 'en', title: 'Tech Consulting', description: 'We provide strategic guidance during your digital transformation.', features: ['Tech Strategy', 'Architecture Review', 'Team Augmentation', 'Digital Transformation'], ctaText: 'Schedule a Call' },
+        { locale: 'tr', title: 'API & Backend Geliştirme', description: 'Güvenli, ölçeklenebilir ve yüksek performanslı API ve backend altyapıları geliştiriyoruz.', features: ['RESTful & GraphQL API', 'Microservices', 'Node.js & Python', 'Cloud Deploy'], ctaText: 'Teklif Al' },
+        { locale: 'en', title: 'API & Backend Development', description: 'We build secure, scalable, and high-performance API and backend infrastructures.', features: ['RESTful & GraphQL API', 'Microservices', 'Node.js & Python', 'Cloud Deploy'], ctaText: 'Get a Quote' },
+      ],
+    },
+    {
+      slug: 'data-analytics',
+      icon: 'BarChart3',
+      order: 7,
+      translations: [
+        { locale: 'tr', title: 'Veri Analizi & Raporlama', description: 'Verilerinizi anlamlı içgörülere dönüştüren analiz ve raporlama sistemleri kuruyoruz.', features: ['Veri Görselleştirme', 'İş Zekası (BI)', 'Özel Raporlar', 'Gerçek Zamanlı Dashboard'], ctaText: 'İncele' },
+        { locale: 'en', title: 'Data Analytics & Reporting', description: 'We build analytics and reporting systems that turn your data into meaningful insights.', features: ['Data Visualization', 'Business Intelligence', 'Custom Reports', 'Real-Time Dashboards'], ctaText: 'Learn More' },
+      ],
+    },
+    {
+      slug: 'support-maintenance',
+      icon: 'Wrench',
+      order: 8,
+      translations: [
+        { locale: 'tr', title: 'Teknik Destek & Bakım Hizmetleri', description: 'Projelerinizin kesintisiz çalışmasını sağlayan teknik destek, bakım ve güncelleme hizmetleri sunuyoruz.', features: ['7/24 Teknik Destek', 'Güvenlik Güncellemeleri', 'Performans Optimizasyonu', 'Sunucu Yönetimi'], ctaText: 'Destek Al' },
+        { locale: 'en', title: 'Technical Support & Maintenance', description: 'We provide technical support, maintenance, and update services to keep your projects running smoothly.', features: ['24/7 Technical Support', 'Security Updates', 'Performance Optimization', 'Server Management'], ctaText: 'Get Support' },
       ],
     },
   ];
@@ -177,145 +195,26 @@ async function main() {
   }
   console.log('✅ Projects seeded');
 
-  // Team members
-  const team = [
-    {
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200',
-      email: 'ali@techco.com',
-      linkedin: 'https://linkedin.com',
-      order: 1,
-      translations: [
-        { locale: 'tr', name: 'Ali Kaya', role: 'CEO & Kurucu', bio: 'Yazılım mühendisliği ve girişimcilik tutkusuyla TechCo\'yu kurdu.' },
-        { locale: 'en', name: 'Ali Kaya', role: 'CEO & Founder', bio: 'Founded TechCo with a passion for software engineering and entrepreneurship.' },
-      ],
-    },
-    {
-      photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200',
-      email: 'selin@techco.com',
-      linkedin: 'https://linkedin.com',
-      order: 2,
-      translations: [
-        { locale: 'tr', name: 'Selin Demir', role: 'CTO', bio: '10+ yıllık deneyimiyle teknik ekibi yönetiyor.' },
-        { locale: 'en', name: 'Selin Demir', role: 'CTO', bio: 'Leads the technical team with 10+ years of experience.' },
-      ],
-    },
-    {
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200',
-      email: 'mert@techco.com',
-      order: 3,
-      translations: [
-        { locale: 'tr', name: 'Mert Yıldız', role: 'Lead Designer', bio: 'Kullanıcı deneyimini sanatla buluşturan tasarımcı.' },
-        { locale: 'en', name: 'Mert Yıldız', role: 'Lead Designer', bio: 'Designer who merges user experience with art.' },
-      ],
-    },
-    {
-      photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200',
-      email: 'zeynep@techco.com',
-      order: 4,
-      translations: [
-        { locale: 'tr', name: 'Zeynep Arslan', role: 'Full Stack Developer', bio: 'React ve Node.js uzmanı, performans odaklı developer.' },
-        { locale: 'en', name: 'Zeynep Arslan', role: 'Full Stack Developer', bio: 'React and Node.js expert, performance-focused developer.' },
-      ],
-    },
-  ];
-
-  for (const member of team) {
-    const { translations, ...data } = member;
-    const existing = await prisma.teamMember.findFirst({ where: { email: data.email } });
-    if (!existing) {
-      await prisma.teamMember.create({
-        data: { ...data, translations: { create: translations } },
-      });
-    }
-  }
-  console.log('✅ Team members seeded');
-
-  // Blog category
-  const blogCat = await prisma.blogCategory.upsert({
-    where: { slug: 'technology' },
-    update: {},
-    create: {
-      slug: 'technology',
-      translations: {
-        create: [
-          { locale: 'tr', name: 'Teknoloji' },
-          { locale: 'en', name: 'Technology' },
-        ],
-      },
-    },
-  });
-
-  // Blog posts
-  const posts = [
-    {
-      slug: 'nextjs-15-whats-new',
-      coverImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800',
-      tags: ['Next.js', 'React', 'JavaScript'],
-      isPublished: true,
-      publishedAt: new Date('2024-11-01'),
-      categoryId: blogCat.id,
-      translations: [
-        { locale: 'tr', title: "Next.js 15'teki Yenilikler", excerpt: 'Next.js 15 ile gelen yeni özellikler ve performans iyileştirmeleri.', content: '<p>Next.js 15, React 19 desteği ve yeni ön belleğe alma stratejileriyle önemli güncellemeler getiriyor...</p>', metaTitle: "Next.js 15'te Ne Var?", metaDesc: 'Next.js 15 yeniliklerini keşfedin.' },
-        { locale: 'en', title: "What's New in Next.js 15", excerpt: 'New features and performance improvements coming with Next.js 15.', content: '<p>Next.js 15 brings significant updates with React 19 support and new caching strategies...</p>', metaTitle: "What's New in Next.js 15?", metaDesc: "Discover Next.js 15's new features." },
-      ],
-    },
-    {
-      slug: 'tailwind-css-v4-preview',
-      coverImage: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800',
-      tags: ['CSS', 'Tailwind', 'Design'],
-      isPublished: true,
-      publishedAt: new Date('2024-10-15'),
-      categoryId: blogCat.id,
-      translations: [
-        { locale: 'tr', title: 'Tailwind CSS v4 Önizleme', excerpt: 'Tailwind CSS v4 ile CSS-first yapılandırma ve yeni özellikler.', content: '<p>Tailwind CSS v4 tamamen yeniden tasarlanmış bir mimari ile geliyor...</p>', metaTitle: 'Tailwind CSS v4', metaDesc: 'Tailwind CSS v4 hakkında her şey.' },
-        { locale: 'en', title: 'Tailwind CSS v4 Preview', excerpt: 'CSS-first configuration and new features with Tailwind CSS v4.', content: '<p>Tailwind CSS v4 comes with a completely redesigned architecture...</p>', metaTitle: 'Tailwind CSS v4', metaDesc: 'Everything about Tailwind CSS v4.' },
-      ],
-    },
-    {
-      slug: 'prisma-orm-best-practices',
-      coverImage: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800',
-      tags: ['Prisma', 'Database', 'ORM'],
-      isPublished: true,
-      publishedAt: new Date('2024-09-20'),
-      categoryId: blogCat.id,
-      translations: [
-        { locale: 'tr', title: 'Prisma ORM En İyi Uygulamalar', excerpt: 'Prisma ile veritabanı yönetiminde en iyi pratikler ve ipuçları.', content: '<p>Prisma modern TypeScript projeleri için güçlü bir ORM çözümüdür...</p>', metaTitle: 'Prisma ORM Best Practices', metaDesc: 'Prisma ile veritabanı yönetimi.' },
-        { locale: 'en', title: 'Prisma ORM Best Practices', excerpt: 'Best practices and tips for database management with Prisma.', content: '<p>Prisma is a powerful ORM solution for modern TypeScript projects...</p>', metaTitle: 'Prisma ORM Best Practices', metaDesc: 'Database management with Prisma.' },
-      ],
-    },
-  ];
-
-  for (const post of posts) {
-    const { translations, ...data } = post;
-    await prisma.blogPost.upsert({
-      where: { slug: data.slug },
-      update: {},
-      create: { ...data, translations: { create: translations } },
-    });
-  }
-  console.log('✅ Blog posts seeded');
-
   // ─── Site Settings ─────────────────────────────────────────────────────────
   const siteSettings = [
     // Contact
-    { key: 'contact_address', value: { display: 'Levent, İstanbul, Türkiye' }, group: 'contact' },
-    { key: 'contact_phone', value: { display: '+90 212 123 45 67', href: 'tel:+902121234567' }, group: 'contact' },
-    { key: 'contact_email', value: { display: 'hello@techco.com', href: 'mailto:hello@techco.com' }, group: 'contact' },
+    { key: 'contact_address', value: { display: 'Muratpaşa, Antalya, Türkiye' }, group: 'contact' },
+    { key: 'contact_phone', value: { display: '+90 542 746 01 97', href: 'tel:+905427460197' }, group: 'contact' },
+    { key: 'contact_email', value: { display: 'info@dahiteknoloji.com', href: 'mailto:info@dahiteknoloji.com' }, group: 'contact' },
     { key: 'contact_hours', value: { display: 'Mon–Fri 09:00–18:00' }, group: 'contact' },
-    { key: 'contact_map_url', value: { url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.7!2d29.01!3d41.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA0JzQ4LjAiTiAyOcKwMDAnMzYuMCJF!5e0!3m2!1sen!2str!4v1' }, group: 'contact' },
+    { key: 'contact_map_url', value: { url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25603.8!2d30.6834!3d36.8869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39aaeddadadc1%3A0x95c69047e3f4b6e4!2sMuratpa%C5%9Fa%2C%20Antalya!5e0!3m2!1str!2str!4v1' }, group: 'contact' },
     // Social
-    { key: 'social_linkedin', value: { url: 'https://linkedin.com/company/techco' }, group: 'social' },
-    { key: 'social_twitter', value: { url: 'https://twitter.com/techco' }, group: 'social' },
-    { key: 'social_instagram', value: { url: 'https://instagram.com/techco' }, group: 'social' },
-    { key: 'social_github', value: { url: 'https://github.com/techco' }, group: 'social' },
+    { key: 'social_linkedin', value: { url: 'https://linkedin.com/company/dahiteknoloji' }, group: 'social' },
+    { key: 'social_twitter', value: { url: 'https://twitter.com/dahiteknoloji' }, group: 'social' },
+    { key: 'social_instagram', value: { url: 'https://instagram.com/dahiteknoloji' }, group: 'social' },
+    { key: 'social_github', value: { url: 'https://github.com/dahiteknoloji' }, group: 'social' },
     // Branding
-    { key: 'company_name', value: { name: 'TechCo', logoText: 'T' }, group: 'branding' },
-    { key: 'whatsapp', value: { phone: '+905001234567', messageTr: 'Merhaba, bilgi almak istiyorum.', messageEn: 'Hello, I need more information.' }, group: 'branding' },
+    { key: 'company_name', value: { name: 'Dahi Teknoloji', logoText: 'D' }, group: 'branding' },
+    { key: 'whatsapp', value: { phone: '+905427460197', messageTr: 'Merhaba, bilgi almak istiyorum.', messageEn: 'Hello, I need more information.' }, group: 'branding' },
     // Stats
     { key: 'stats_projects', value: { value: 150, suffix: '+' }, group: 'stats' },
     { key: 'stats_clients', value: { value: 80, suffix: '+' }, group: 'stats' },
     { key: 'stats_years', value: { value: 6, suffix: '+' }, group: 'stats' },
-    { key: 'stats_team', value: { value: 12, suffix: '' }, group: 'stats' },
   ];
 
   for (const setting of siteSettings) {
@@ -344,13 +243,13 @@ async function main() {
           locale: 'tr',
           title: 'Hikayemiz',
           subtitle: '2018\'den Bu Yana',
-          body: '2018 yılında kurulan TechCo, karmaşık teknoloji ile güzel kullanıcı deneyimi arasındaki boşluğu doldurmaya kararlı küçük bir mühendis ve tasarımcı ekibi olarak başladı.\n\nYıllar içinde, 12 ülkedeki 80\'den fazla müşterinin dijital hedeflerine ulaşmasına yardımcı olan tam hizmet dijital ajansa dönüştük — erken aşama startup\'lardan kurumsal Fortune 500 şirketlerine kadar.\n\nYaklaşımımız basit: derinlemesine anla, düşünceli tasarla, mükemmel inşa et ve durmaksızın geliştir.',
+          body: '2018 yılında kurulan Dahi Teknoloji, karmaşık teknoloji ile güzel kullanıcı deneyimi arasındaki boşluğu doldurmaya kararlı küçük bir mühendis ve tasarımcı ekibi olarak başladı.\n\nYıllar içinde, 12 ülkedeki 80\'den fazla müşterinin dijital hedeflerine ulaşmasına yardımcı olan tam hizmet dijital ajansa dönüştük — erken aşama startup\'lardan kurumsal Fortune 500 şirketlerine kadar.\n\nYaklaşımımız basit: derinlemesine anla, düşünceli tasarla, mükemmel inşa et ve durmaksızın geliştir.',
         },
         {
           locale: 'en',
           title: 'Our Story',
           subtitle: 'Since 2018',
-          body: 'Founded in 2018, TechCo began as a small team of passionate engineers and designers determined to bridge the gap between complex technology and beautiful user experience.\n\nOver the years, we\'ve grown into a full-service digital agency, helping over 80 clients across 12 countries achieve their digital goals — from early-stage startups to enterprise Fortune 500 companies.\n\nOur approach is simple: understand deeply, design thoughtfully, build excellently, and iterate relentlessly.',
+          body: 'Founded in 2018, Dahi Teknoloji began as a small team of passionate engineers and designers determined to bridge the gap between complex technology and beautiful user experience.\n\nOver the years, we\'ve grown into a full-service digital agency, helping over 80 clients across 12 countries achieve their digital goals — from early-stage startups to enterprise Fortune 500 companies.\n\nOur approach is simple: understand deeply, design thoughtfully, build excellently, and iterate relentlessly.',
         },
       ],
     },

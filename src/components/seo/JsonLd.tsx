@@ -14,28 +14,81 @@ export function OrganizationJsonLd() {
     <JsonLd
       data={{
         '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'TechCo',
-        url: BASE_URL,
-        logo: `${BASE_URL}/logo.png`,
-        description: 'Dijital dönüşüm, web geliştirme, mobil uygulama ve yazılım çözümleri sunan teknoloji şirketi.',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'İstanbul',
-          addressCountry: 'TR',
-        },
-        contactPoint: {
-          '@type': 'ContactPoint',
-          contactType: 'customer service',
-          availableLanguage: ['Turkish', 'English'],
-        },
-        sameAs: [
-          'https://linkedin.com/company/techco',
-          'https://twitter.com/techco',
-          'https://instagram.com/techco',
-          'https://github.com/techco',
-        ],
-      }}
+        '@type': ['Organization', 'LocalBusiness'],
+          '@id': `${BASE_URL}/#organization`,
+          name: 'Dahi Teknoloji',
+          legalName: 'Dahi Teknoloji',
+          url: BASE_URL,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${BASE_URL}/logo.png`,
+            width: 512,
+            height: 512,
+          },
+          image: `${BASE_URL}/logo.png`,
+          description: 'Kurumsal web sitesi, e-ticaret, mobil uygulama, CRM/ERP, yapay zeka otomasyon, API geliştirme, veri analizi ve teknik destek hizmetleri sunan Antalya merkezli profesyonel yazılım şirketi.',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Muratpaşa',
+            addressRegion: 'Antalya',
+            addressCountry: 'TR',
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 36.8869,
+            longitude: 30.7025,
+          },
+          contactPoint: [
+            {
+              '@type': 'ContactPoint',
+              contactType: 'customer service',
+              availableLanguage: ['Turkish', 'English'],
+            },
+            {
+              '@type': 'ContactPoint',
+              contactType: 'sales',
+              availableLanguage: ['Turkish', 'English'],
+            },
+          ],
+          areaServed: [
+            { '@type': 'Country', name: 'Turkey' },
+            { '@type': 'Country', name: 'Germany' },
+            { '@type': 'Country', name: 'United Kingdom' },
+            { '@type': 'Country', name: 'Netherlands' },
+          ],
+          knowsAbout: [
+            'Kurumsal Web Sitesi Geliştirme',
+            'E-Ticaret Platformu Geliştirme',
+            'Mobil Uygulama Geliştirme',
+            'Özel Yazılım Geliştirme',
+            'CRM Yazılımı',
+            'ERP Çözümleri',
+            'Yapay Zeka & Otomasyon',
+            'API & Backend Geliştirme',
+            'Veri Analizi & İş Zekası',
+            'Teknik Destek & Bakım',
+          ],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Yazılım Hizmetleri',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Kurumsal Web & E-Ticaret Çözümleri' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobil Uygulama Geliştirme' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Özel Yazılım & İş Yönetim Sistemleri' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRM / ERP Çözümleri' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Yapay Zeka & Otomasyon Sistemleri' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'API & Backend Geliştirme' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Veri Analizi & Raporlama' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Teknik Destek & Bakım Hizmetleri' } },
+            ],
+          },
+          sameAs: [
+            'https://linkedin.com/company/dahiteknoloji',
+            'https://twitter.com/dahiteknoloji',
+            'https://instagram.com/dahiteknoloji',
+            'https://github.com/dahiteknoloji',
+          ],
+        }}
     />
   );
 }
@@ -46,66 +99,16 @@ export function WebSiteJsonLd() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'TechCo',
+        '@id': `${BASE_URL}/#website`,
+        name: 'Dahi Teknoloji',
         url: BASE_URL,
+        publisher: { '@id': `${BASE_URL}/#organization` },
+        inLanguage: 'tr-TR',
         potentialAction: {
           '@type': 'SearchAction',
-          target: `${BASE_URL}/tr/blog?q={search_term_string}`,
+          target: `${BASE_URL}/tr/services`,
           'query-input': 'required name=search_term_string',
         },
-      }}
-    />
-  );
-}
-
-export function BlogPostJsonLd({
-  title,
-  description,
-  slug,
-  publishedAt,
-  updatedAt,
-  coverImage,
-  locale,
-  category,
-  tags,
-}: {
-  title: string;
-  description: string;
-  slug: string;
-  publishedAt: string;
-  updatedAt: string;
-  coverImage?: string | null;
-  locale: string;
-  category?: string;
-  tags?: string[];
-}) {
-  return (
-    <JsonLd
-      data={{
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: title,
-        description,
-        url: `${BASE_URL}/${locale}/blog/${slug}`,
-        datePublished: publishedAt,
-        dateModified: updatedAt,
-        image: coverImage || `${BASE_URL}/og-default.png`,
-        author: {
-          '@type': 'Organization',
-          name: 'TechCo',
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: 'TechCo',
-          logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo.png` },
-        },
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `${BASE_URL}/${locale}/blog/${slug}`,
-        },
-        ...(category && { articleSection: category }),
-        ...(tags && tags.length > 0 && { keywords: tags.join(', ') }),
-        inLanguage: 'tr-TR',
       }}
     />
   );
@@ -129,7 +132,7 @@ export function ServiceJsonLd({
         description,
         provider: {
           '@type': 'Organization',
-          name: 'TechCo',
+          name: 'Dahi Teknoloji',
           url: BASE_URL,
         },
         areaServed: { '@type': 'Country', name: 'Turkey' },

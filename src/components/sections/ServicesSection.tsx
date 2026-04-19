@@ -1,93 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
-import * as LucideIcons from 'lucide-react';
-import type { LucideProps } from 'lucide-react';
-
-const { ArrowRight } = LucideIcons;
-
-function ServiceCard({ icon, title, description, index }: {
-  icon: string; title: string; description: string; index: number;
-}) {
-  const IconComponent = (LucideIcons as unknown as Record<string, React.ComponentType<LucideProps>>)[icon] || LucideIcons.Zap;
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -12;
-    setTilt({ x: y, y: x });
-  };
-
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
-
-  const COLORS = [
-    { bg: 'from-brand-600 to-brand-700', light: 'bg-brand-50', text: 'text-brand-600' },
-    { bg: 'from-accent-500 to-accent-600', light: 'bg-accent-50', text: 'text-accent-600' },
-    { bg: 'from-violet-500 to-violet-600', light: 'bg-violet-50', text: 'text-violet-600' },
-    { bg: 'from-amber-500 to-amber-600', light: 'bg-amber-50', text: 'text-amber-600' },
-    { bg: 'from-rose-500 to-rose-600', light: 'bg-rose-50', text: 'text-rose-600' },
-    { bg: 'from-cyan-500 to-cyan-600', light: 'bg-cyan-50', text: 'text-cyan-600' },
-  ];
-  const color = COLORS[index % COLORS.length];
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ delay: index * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: '1000px',
-      }}
-      className="group"
-    >
-      <motion.div
-        className="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-shadow duration-500 cursor-pointer h-full"
-        style={{
-          transformStyle: 'preserve-3d',
-          rotateX: tilt.x,
-          rotateY: tilt.y,
-        }}
-        transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-      >
-        {/* Gradient line top */}
-        <div className={`absolute top-0 left-6 right-6 h-1 rounded-b-full bg-gradient-to-r ${color.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
-        <div className={`w-14 h-14 rounded-2xl ${color.light} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-          <IconComponent className={`h-7 w-7 ${color.text}`} />
-        </div>
-
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
-          {title}
-        </h3>
-        <p className="text-gray-500 leading-relaxed text-[15px] mb-6">{description}</p>
-
-        <div className={`flex items-center gap-1.5 ${color.text} font-semibold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300`}>
-          Detaylı bilgi <ArrowRight className="h-4 w-4" />
-        </div>
-
-        {/* 3D shine effect */}
-        <div
-          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: `radial-gradient(circle at ${50 + tilt.y * 4}% ${50 - tilt.x * 4}%, rgba(255,255,255,0.3) 0%, transparent 60%)`,
-          }}
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
+import { Smartphone } from 'lucide-react';
+import { getIcon } from '@/lib/icons';
 
 interface Service {
   id: string;
@@ -95,38 +13,154 @@ interface Service {
   translations: Array<{ title: string; description: string }>;
 }
 
+function ServiceItem({
+  icon, title, description, index, side,
+}: {
+  icon: string; title: string; description: string; index: number; side: 'left' | 'right';
+}) {
+  const IconComponent = getIcon(icon);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: side === 'left' ? -40 : 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`flex items-start gap-4 ${side === 'left' ? 'lg:text-right lg:flex-row-reverse' : ''}`}
+    >
+      <div className="shrink-0 w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center">
+        <IconComponent className="h-6 w-6 text-purple-600" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <h3 className="text-lg font-bold text-gray-900 mb-1.5 leading-snug">
+          {title}
+        </h3>
+        <p className="text-gray-500 leading-relaxed text-sm">{description}</p>
+      </div>
+    </motion.div>
+  );
+}
+
 export function ServicesSection({ services }: { services: Service[] }) {
   const t = useTranslations('home.services');
 
-  return (
-    <section className="py-28 bg-gray-50/80">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge={t('badge')}
-          title={t('title')}
-          subtitle={t('subtitle')}
-          className="mb-16"
-        />
+  const leftServices = services.slice(0, 4);
+  const rightServices = services.slice(4, 8);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <ServiceCard
+  return (
+    <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 lg:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 text-2xl sm:text-3xl lg:text-5xl font-display font-bold text-gray-900 mb-3">
+            <span className="text-purple-600">#</span>
+            <span>Neler Yapıyoruz?</span>
+          </div>
+          <p className="text-purple-600 font-bold text-xs sm:text-sm uppercase tracking-widest">
+            HİZMET ÇEŞİTLERİ
+          </p>
+        </motion.div>
+
+        {/* MOBILE: Single column list */}
+        <div className="lg:hidden space-y-8 max-w-md mx-auto">
+          {services.slice(0, 8).map((service, i) => (
+            <ServiceItem
               key={service.id}
               icon={service.icon}
               title={service.translations[0]?.title || ''}
               description={service.translations[0]?.description || ''}
               index={i}
+              side="right"
             />
           ))}
         </div>
 
+        {/* DESKTOP: 3-column with phone in middle */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] gap-12 items-center max-w-7xl mx-auto">
+          {/* LEFT */}
+          <div className="space-y-14">
+            {leftServices.map((service, i) => (
+              <ServiceItem
+                key={service.id}
+                icon={service.icon}
+                title={service.translations[0]?.title || ''}
+                description={service.translations[0]?.description || ''}
+                index={i}
+                side="left"
+              />
+            ))}
+          </div>
+
+          {/* CENTER PHONE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mx-auto"
+          >
+            <div className="relative w-[280px] h-[560px] rounded-[3rem] bg-gray-900 p-3 shadow-2xl shadow-purple-300/40">
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-gray-900 rounded-b-2xl z-30" />
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-purple-50 via-white to-fuchsia-50 flex items-center justify-center">
+                <div className="absolute inset-0 grid grid-cols-4 gap-3 p-6 pt-16">
+                  {Array.from({ length: 24 }).map((_, i) => {
+                    const colors = [
+                      'bg-purple-500', 'bg-fuchsia-500', 'bg-pink-500', 'bg-rose-500',
+                      'bg-violet-500', 'bg-indigo-500', 'bg-blue-500', 'bg-cyan-500',
+                      'bg-emerald-500', 'bg-amber-500', 'bg-orange-500', 'bg-red-500',
+                    ];
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.03, duration: 0.4 }}
+                        className={`aspect-square rounded-2xl ${colors[i % colors.length]} opacity-90 shadow-lg`}
+                      />
+                    );
+                  })}
+                </div>
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                  className="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-br from-purple-600 to-fuchsia-600 flex items-center justify-center shadow-2xl shadow-purple-500/50"
+                >
+                  <Smartphone className="h-12 w-12 text-white" />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT */}
+          <div className="space-y-14">
+            {rightServices.map((service, i) => (
+              <ServiceItem
+                key={service.id}
+                icon={service.icon}
+                title={service.translations[0]?.title || ''}
+                description={service.translations[0]?.description || ''}
+                index={i}
+                side="right"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-14"
+          className="text-center mt-14 lg:mt-20"
         >
-          <Button asChild variant="outline" size="lg">
+          <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 text-white shadow-lg shadow-purple-500/25">
             <Link href="/services">{t('viewAll')}</Link>
           </Button>
         </motion.div>

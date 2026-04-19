@@ -2,11 +2,11 @@
 
 import { Layout, Menu, useGetIdentity, Logout } from 'react-admin';
 import {
-  Construction, FolderOpen, Article, Category,
-  People, Email, RequestQuote,
+  Construction, FolderOpen, Category,
+  Email, RequestQuote,
   Image as ImageIcon, Menu as MenuIcon, TravelExplore,
   Dashboard as DashboardIcon, Settings as SettingsIcon,
-  Description, ExitToApp,
+  Description, ManageAccounts,
 } from '@mui/icons-material';
 import { Box, Typography, Divider, Avatar, alpha } from '@mui/material';
 
@@ -25,8 +25,6 @@ function AdminMenu() {
       </Box>
       <Menu.ResourceItem name="services" primaryText="Hizmetler" leftIcon={<Construction />} />
       <Menu.ResourceItem name="projects" primaryText="Projeler" leftIcon={<FolderOpen />} />
-      <Menu.ResourceItem name="blog-posts" primaryText="Blog Yazıları" leftIcon={<Article />} />
-      <Menu.ResourceItem name="team-members" primaryText="Ekip" leftIcon={<People />} />
       <Menu.ResourceItem name="page-contents" primaryText="Sayfa İçerikleri" leftIcon={<Description />} />
 
       <Box sx={{ px: 2, pt: 2.5, pb: 0.5 }}>
@@ -37,7 +35,6 @@ function AdminMenu() {
           Kategoriler
         </Typography>
       </Box>
-      <Menu.ResourceItem name="blog-categories" primaryText="Blog Kategorileri" leftIcon={<Category />} />
       <Menu.ResourceItem name="project-categories" primaryText="Proje Kategorileri" leftIcon={<Category />} />
 
       <Box sx={{ px: 2, pt: 2.5, pb: 0.5 }}>
@@ -64,6 +61,7 @@ function AdminMenu() {
       <Menu.ResourceItem name="seo-entries" primaryText="SEO" leftIcon={<TravelExplore />} />
       <Menu.ResourceItem name="media" primaryText="Medya" leftIcon={<ImageIcon />} />
       <Menu.ResourceItem name="menu-items" primaryText="Menüler" leftIcon={<MenuIcon />} />
+      <Menu.ResourceItem name="users" primaryText="Yöneticiler" leftIcon={<ManageAccounts />} />
       <Menu.Item to="/site-settings" primaryText="Site Ayarları" leftIcon={<SettingsIcon />} />
     </Menu>
   );
@@ -86,7 +84,7 @@ function CustomAppBar() {
           width: 34,
           height: 34,
           borderRadius: '10px',
-          background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+          background: 'linear-gradient(135deg, #7e22ce, #9333ea)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -96,10 +94,10 @@ function CustomAppBar() {
           boxShadow: '0 2px 8px rgba(79, 70, 229, 0.3)',
         }}
       >
-        T
+        D
       </Box>
       <Typography variant="subtitle1" fontWeight={700} color="text.primary">
-        TechCo Yönetim
+        Dahi Teknoloji Yönetim
       </Typography>
       {data?.fullName && (
         <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
@@ -127,9 +125,9 @@ export function AdminLayout(props: { children: React.ReactNode }) {
           padding: '24px !important',
         },
         '& .RaMenuItemLink-active': {
-          borderRight: '3px solid #4f46e5',
-          backgroundColor: alpha('#4f46e5', 0.06),
-          color: '#4f46e5 !important',
+          borderRight: '3px solid #7e22ce',
+          backgroundColor: alpha('#7e22ce', 0.06),
+          color: '#7e22ce !important',
           fontWeight: '600 !important',
         },
       }}

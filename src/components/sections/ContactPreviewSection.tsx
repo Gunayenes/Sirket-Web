@@ -22,8 +22,8 @@ export function ContactPreviewSection({ contactInfo }: ContactPreviewSectionProp
   const items = [
     {
       icon: Mail,
-      label: contactInfo?.email?.display || 'hello@techco.com',
-      href: contactInfo?.email?.href || 'mailto:hello@techco.com',
+      label: contactInfo?.email?.display || 'hello@dahiteknoloji.com',
+      href: contactInfo?.email?.href || 'mailto:hello@dahiteknoloji.com',
       color: 'bg-blue-50 text-blue-600',
     },
     {
@@ -34,9 +34,9 @@ export function ContactPreviewSection({ contactInfo }: ContactPreviewSectionProp
     },
     {
       icon: MapPin,
-      label: contactInfo?.address || 'Levent, İstanbul',
+      label: contactInfo?.address || 'Muratpaşa, Antalya',
       href: undefined,
-      color: 'bg-violet-50 text-violet-600',
+      color: 'bg-purple-50 text-purple-600',
     },
   ];
 

@@ -5,15 +5,15 @@ export const adminTheme = {
   palette: {
     ...defaultTheme.palette,
     primary: {
-      main: '#4f46e5',
-      light: '#6366f1',
-      dark: '#4338ca',
+      main: '#7e22ce',
+      light: '#9333ea',
+      dark: '#6b21a8',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#14b8a6',
-      light: '#2dd4bf',
-      dark: '#0d9488',
+      main: '#8b5cf6',
+      light: '#a78bfa',
+      dark: '#7c3aed',
       contrastText: '#ffffff',
     },
     background: {
@@ -39,11 +39,11 @@ export const adminTheme = {
           margin: '2px 8px',
           paddingLeft: 16,
           '&.RaMenuItemLink-active': {
-            backgroundColor: '#eef2ff',
-            color: '#4f46e5',
+            backgroundColor: '#f5f3ff',
+            color: '#7e22ce',
             fontWeight: 600,
             '& .MuiSvgIcon-root': {
-              color: '#4f46e5',
+              color: '#7e22ce',
             },
           },
         },

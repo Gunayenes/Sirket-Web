@@ -14,8 +14,23 @@ function httpClient(url: string, options: fetchUtils.Options = {}) {
 export const dataProvider: DataProvider = {
   getList: async (resource, params) => {
     const { page, perPage } = params.pagination ?? { page: 1, perPage: 25 };
-    const url = `${apiUrl}/${resource}?_page=${page}&_perPage=${perPage}`;
-    const { headers, json } = await httpClient(url);
+    const { field, order } = params.sort ?? { field: 'createdAt', order: 'DESC' };
+    const filter = params.filter ?? {};
+
+    const query = new URLSearchParams({
+      _page: String(page),
+      _perPage: String(perPage),
+      _sortField: field,
+      _sortDir: order,
+    });
+
+    // Serialize filter entries as individual query params for simple server-side parsing.
+    Object.entries(filter).forEach(([key, value]) => {
+      if (value === undefined || value === null || value === '') return;
+      query.set(key, String(value));
+    });
+
+    const { headers, json } = await httpClient(`${apiUrl}/${resource}?${query.toString()}`);
     const contentRange = headers.get('content-range') || '';
     const total = parseInt(contentRange.split('/').pop() || '0', 10);
     return { data: json, total };

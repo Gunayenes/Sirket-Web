@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Gizlilik Politikası',
-  description: 'TechCo gizlilik politikası ve kişisel verilerin korunması.',
+  title: 'Gizlilik Politikası | Dahi Teknoloji — KVKK & Kişisel Verilerin Korunması',
+  description: 'Dahi Teknoloji gizlilik politikası. KVKK kapsamında kişisel verilerin toplanması, işlenmesi, korunması ve haklarınız hakkında bilgi edinin.',
 };
 
 export default function PrivacyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
         <div className="prose prose-gray max-w-none prose-headings:font-display prose-headings:font-bold">
           <h2>1. Kişisel Verilerin Korunması</h2>
-          <p>TechCo olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel verilerinizin güvenliğini önemsiyoruz. Bu politika, kişisel verilerinizin nasıl toplandığını, işlendiğini ve korunduğunu açıklamaktadır.</p>
+          <p>Dahi Teknoloji olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel verilerinizin güvenliğini önemsiyoruz. Bu politika, kişisel verilerinizin nasıl toplandığını, işlendiğini ve korunduğunu açıklamaktadır.</p>
 
           <h2>2. Toplanan Veriler</h2>
           <p>Web sitemizi ziyaret ettiğinizde ve hizmetlerimizi kullandığınızda aşağıdaki verileri toplayabiliriz:</p>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           </ul>
 
           <h2>7. İletişim</h2>
-          <p>Gizlilik politikamızla ilgili sorularınız için <a href="mailto:privacy@techco.com">privacy@techco.com</a> adresinden bize ulaşabilirsiniz.</p>
+          <p>Gizlilik politikamızla ilgili sorularınız için <a href="mailto:privacy@dahiteknoloji.com">privacy@dahiteknoloji.com</a> adresinden bize ulaşabilirsiniz.</p>
         </div>
       </div>
     </article>

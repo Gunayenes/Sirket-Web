@@ -11,9 +11,24 @@ export async function GET(req: NextRequest) {
   const perPage = Number(searchParams.get('_perPage') || 50);
   const skip = (page - 1) * perPage;
 
+  const sortField = searchParams.get('_sortField') || 'order';
+  const sortDir = (searchParams.get('_sortDir') || 'ASC').toLowerCase() === 'desc' ? 'desc' : 'asc';
+
+  const location = searchParams.get('location');
+  const isActive = searchParams.get('isActive');
+
+  const where: Record<string, unknown> = {};
+  if (location) where.location = location;
+  if (isActive !== null) where.isActive = isActive === 'true';
+
   const [data, total] = await Promise.all([
-    prisma.menuItem.findMany({ skip, take: perPage, orderBy: { order: 'asc' }, include: { translations: true } }),
-    prisma.menuItem.count(),
+    prisma.menuItem.findMany({
+      where,
+      skip, take: perPage,
+      orderBy: { [sortField]: sortDir },
+      include: { translations: true },
+    }),
+    prisma.menuItem.count({ where }),
   ]);
 
   return NextResponse.json(data, {

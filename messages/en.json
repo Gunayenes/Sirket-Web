@@ -4,7 +4,6 @@
     "services": "Services",
     "about": "About",
     "projects": "Projects",
-    "blog": "Blog",
     "contact": "Contact",
     "getQuote": "Get a Quote"
   },
@@ -12,19 +11,18 @@
     "hero": {
       "badge": "Your Digital Transformation Partner",
       "title": "We Turn Your Ideas\nInto Digital\nExperiences",
-      "subtitle": "We build scalable solutions that bring your business into the future with modern technologies and innovative design. Let our expert team bring your project to life.",
+      "subtitle": "Corporate websites, e-commerce platforms, mobile apps, CRM/ERP systems, AI automation, and custom software solutions. Antalya-based expert team bringing your digital projects to life.",
       "cta": "Start Your Project",
       "secondary": "View Our Work",
       "scrollHint": "Scroll down",
-      "highlights": ["Free Consultation", "24/7 Support", "Agile Process"],
+      "highlights": {"0": "Free Consultation", "1": "24/7 Support", "2": "Agile Process"},
       "floatingProjects": "Projects Completed",
       "floatingSuccess": "98% Client Satisfaction"
     },
     "stats": {
       "projects": "Projects Completed",
       "clients": "Happy Clients",
-      "years": "Years of Experience",
-      "team": "Expert Team Members"
+      "years": "Years of Experience"
     },
     "services": {
       "badge": "What We Do",
@@ -37,14 +35,14 @@
       "title": "Why Choose Us?",
       "subtitle": "We combine technology and creativity to keep you ahead of the competition.",
       "experienceBadge": "Years of Experience",
-      "reasons": [
-        { "title": "Modern Technology", "desc": "We build future-proof solutions using the latest frameworks and tools." },
-        { "title": "Secure & Robust", "desc": "Security is our top priority. Our code fully complies with security standards." },
-        { "title": "Long-term Partnership", "desc": "We provide ongoing support and maintenance even after your project is complete." },
-        { "title": "Scalable Architecture", "desc": "We design systems that scale seamlessly as your business grows." },
-        { "title": "On-time Delivery", "desc": "We deliver your projects on time and within budget using Agile methodology." },
-        { "title": "Proven Track Record", "desc": "With 150+ completed projects and 95%+ client satisfaction, we deliver results." }
-      ]
+      "reasons": {
+        "0": { "title": "Modern Technology", "desc": "We build future-proof solutions using the latest frameworks and tools." },
+        "1": { "title": "Secure & Robust", "desc": "Security is our top priority. Our code fully complies with security standards." },
+        "2": { "title": "Long-term Partnership", "desc": "We provide ongoing support and maintenance even after your project is complete." },
+        "3": { "title": "Scalable Architecture", "desc": "We design systems that scale seamlessly as your business grows." },
+        "4": { "title": "On-time Delivery", "desc": "We deliver your projects on time and within budget using Agile methodology." },
+        "5": { "title": "Proven Track Record", "desc": "With 150+ completed projects and 95%+ client satisfaction, we deliver results." }
+      }
     },
     "projects": {
       "badge": "Our Portfolio",
@@ -55,23 +53,12 @@
     "process": {
       "title": "Our Process",
       "subtitle": "We bring your project to life with a transparent and efficient process.",
-      "steps": [
-        { "title": "Discovery & Analysis", "desc": "We deeply understand your needs and goals." },
-        { "title": "Strategy & Planning", "desc": "We create a tailored roadmap for your project." },
-        { "title": "Design & Development", "desc": "We turn your vision into code with modern tools." },
-        { "title": "Testing & Launch", "desc": "We go live after comprehensive testing." }
-      ]
-    },
-    "team": {
-      "title": "Our Team",
-      "subtitle": "Meet our team of passionate experts in their fields.",
-      "viewAll": "Meet the Full Team"
-    },
-    "blog": {
-      "title": "Latest Posts",
-      "subtitle": "Up-to-date content about technology and the digital world.",
-      "viewAll": "View All Posts",
-      "readMore": "Read More"
+      "steps": {
+        "0": { "title": "Discovery & Analysis", "desc": "We deeply understand your needs and goals." },
+        "1": { "title": "Strategy & Planning", "desc": "We create a tailored roadmap for your project." },
+        "2": { "title": "Design & Development", "desc": "We turn your vision into code with modern tools." },
+        "3": { "title": "Testing & Launch", "desc": "We go live after comprehensive testing." }
+      }
     },
     "cta": {
       "title": "Let's Build Your Project Together",
@@ -90,13 +77,13 @@
     "hero": {
       "badge": "Professional Solutions",
       "title": "Our Services",
-      "subtitle": "Comprehensive digital solutions supporting your business growth. Each service is shaped by years of experience and the latest technologies."
+      "subtitle": "Corporate websites, e-commerce, mobile apps, custom software, CRM/ERP, AI automation, API development, data analytics, and technical support. We manage your digital transformation end-to-end."
     }
   },
   "about": {
     "hero": {
       "title": "About Us",
-      "subtitle": "Our journey filled with technology and innovation."
+      "subtitle": "Antalya-based professional software company. Meet our expert team specializing in corporate web, mobile apps, CRM/ERP, and AI solutions."
     },
     "story": {
       "title": "Our Story",
@@ -104,7 +91,6 @@
     },
     "mission": { "title": "Mission & Vision" },
     "values": { "title": "Our Values" },
-    "team": { "title": "Our Team" },
     "projectsDelivered": "Projects Delivered",
     "happyClients": "Happy Clients",
     "yearsExperience": "Years of Experience",
@@ -113,7 +99,7 @@
   "projects": {
     "hero": {
       "title": "Our Projects",
-      "subtitle": "Digital solutions we've brought to life for our clients."
+      "subtitle": "Explore our corporate websites, e-commerce platforms, mobile apps, and custom software projects. Successful digital transformation stories."
     },
     "filters": {
       "all": "All",
@@ -122,30 +108,20 @@
     },
     "viewProject": "View Project"
   },
-  "blog": {
-    "hero": {
-      "title": "Blog",
-      "subtitle": "Content about technology, design, and the digital world."
-    },
-    "readMore": "Read More",
-    "categories": "Categories",
-    "tags": "Tags",
-    "relatedPosts": "Related Posts",
-    "backToBlog": "Back to Blog",
-    "minuteRead": "min read"
-  },
   "contact": {
     "hero": {
       "title": "Contact",
-      "subtitle": "We'd be happy to help you."
+      "subtitle": "Get free consultation and quotes for your software projects. Learn about our corporate web, mobile app, CRM/ERP, and AI solutions."
     },
     "form": {
-      "title": "Send a Message",
+      "title": "Contact & Quote Form",
       "name": "Full Name",
       "email": "Email",
       "phone": "Phone",
-      "subject": "Subject",
-      "message": "Your Message",
+      "company": "Company Name",
+      "budget": "Budget Range",
+      "services": "Services You're Interested In",
+      "message": "Your Message / Project Details",
       "send": "Send",
       "sending": "Sending...",
       "success": "Your message was sent! We'll get back to you shortly.",
@@ -154,7 +130,8 @@
       "namePlaceholder": "John Doe",
       "emailPlaceholder": "john@example.com",
       "phonePlaceholder": "+90 500 000 00 00",
-      "subjectPlaceholder": "Project inquiry",
+      "companyPlaceholder": "Company Name (optional)",
+      "budgetPlaceholder": "$5k - $10k (optional)",
       "messagePlaceholder": "Tell us about your project..."
     },
     "quote": {
@@ -194,35 +171,36 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Answers to the most commonly asked questions about our services, processes, and technical topics.",
-    "categories": [
-      {
-        "title": "General Questions",
-        "items": [
-          { "q": "What services does TechCo offer?", "a": "We offer web development, mobile app development, UI/UX design, cloud solutions, e-commerce, SEO optimization, and digital transformation consulting services." },
-          { "q": "What technologies do you use?", "a": "We actively use React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, AWS, Azure, and many other modern technologies in our projects." },
-          { "q": "How long does it take to complete a project?", "a": "Depending on scope, simple websites take 2-4 weeks, mid-scale projects 1-3 months, and large-scale projects 3-6 months." },
-          { "q": "Do you offer free consultation?", "a": "Yes, the initial meeting and project analysis are free. We listen to your needs and provide a custom solution proposal and quote." }
-        ]
+    "subtitle": "Frequently asked questions about our corporate web, mobile app, CRM/ERP, AI, and software services.",
+    "categories": {
+      "0": {
+        "title": "About Our Services",
+        "items": {
+          "0": { "q": "What services does Dahi Teknoloji offer?", "a": "We offer corporate website & e-commerce development, mobile app development, custom software & business management systems, CRM/ERP solutions, AI & automation, API & backend development, data analytics & reporting, and 24/7 technical support & maintenance." },
+          "1": { "q": "What technologies do you use?", "a": "We actively use React, Next.js, TypeScript, React Native, Flutter, Node.js, Python, PostgreSQL, GraphQL, REST API, Docker, AWS, Azure, and many other modern technologies." },
+          "2": { "q": "Can you build an e-commerce platform?", "a": "Yes, we develop comprehensive e-commerce platforms including payment system integration, inventory management, order tracking, and shipping integration. We can work with custom designs or existing frameworks." },
+          "3": { "q": "Can you build a CRM or ERP system?", "a": "Yes, we develop custom CRM and ERP solutions for your business. We build systems with customer management, sales tracking, resource planning, and detailed reporting modules." }
+        }
       },
-      {
+      "1": {
         "title": "Technical Questions",
-        "items": [
-          { "q": "Do you make websites mobile-friendly?", "a": "Yes, all our projects are developed as responsive. We ensure perfect display on mobile, tablet, and desktop devices." },
-          { "q": "Is SEO optimization included in your service?", "a": "Yes, basic SEO optimization is included in all our web projects. Technical SEO, page speed optimization, meta tags, and structured data are applied as standard." },
-          { "q": "Can you redesign my existing website?", "a": "Yes, we can redesign and develop your existing site with modern technologies. We ensure a smooth transition without data loss." },
-          { "q": "Do you provide hosting and domain services?", "a": "Hosting infrastructure setup and management are among our services. We deploy your site on AWS, Vercel, or your preferred platform." }
-        ]
+        "items": {
+          "0": { "q": "Do you offer AI and automation solutions?", "a": "Yes, we develop chatbot & smart assistant, business process automation, machine learning models, and natural language processing (NLP) solutions. We accelerate your business processes with AI." },
+          "1": { "q": "Do you provide API and backend development?", "a": "Yes, we develop RESTful and GraphQL APIs, microservice architectures, and secure, scalable backend infrastructures based on Node.js and Python." },
+          "2": { "q": "Which platforms do mobile apps work on?", "a": "We develop high-performance mobile apps that work on both iOS and Android using React Native and Flutter. A single codebase supports both platforms." },
+          "3": { "q": "Is SEO optimization included?", "a": "Yes, basic SEO optimization is included in all web projects. Technical SEO, page speed optimization, meta tags, structured data, and Google search results compatibility are applied as standard." }
+        }
       },
-      {
-        "title": "Payment and Process",
-        "items": [
-          { "q": "What are your payment terms?", "a": "We typically apply a payment plan of 40% upfront, 30% mid-delivery, and 30% on project delivery. Installment options are also available." },
-          { "q": "Do you provide post-project support?", "a": "Yes, we offer 3 months of free technical support and maintenance for all projects. Monthly or annual maintenance packages are available afterwards." },
-          { "q": "How can I track the project progress?", "a": "We work with Agile/Scrum methodology. You can transparently track your project through weekly sprint meetings and demo presentations." }
-        ]
+      "2": {
+        "title": "Process and Support",
+        "items": {
+          "0": { "q": "How long does it take to complete a project?", "a": "Depending on scope, corporate websites take 2-4 weeks, e-commerce and mobile apps 1-3 months, CRM/ERP and custom software projects 3-6 months." },
+          "1": { "q": "Do you provide post-project technical support?", "a": "Yes, we offer 3 months of free technical support and maintenance for all projects. After that, we have maintenance packages with 24/7 support, security updates, performance optimization, and server management." },
+          "2": { "q": "Do you offer free consultation?", "a": "Yes, the initial meeting and project analysis are free. We listen to your needs and provide a custom solution proposal and quote." },
+          "3": { "q": "What does the data analytics service include?", "a": "We build data visualization, business intelligence (BI) dashboards, custom reporting systems, and real-time analytics panels. We turn your data into meaningful insights." }
+        }
       }
-    ]
+    }
   },
   "cookie": {
     "message": "We use cookies to enhance your experience on our website.",

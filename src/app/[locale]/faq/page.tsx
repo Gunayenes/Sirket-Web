@@ -14,13 +14,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const seo = await getPageSeo('faq', locale);
   if (seo) return seo;
-  const t = await getTranslations({ locale, namespace: 'faq' });
   return {
-    title: t('title'),
-    description: t('subtitle'),
+    title: { absolute: 'Sıkça Sorulan Sorular | Dahi Teknoloji — Yazılım Hizmetleri SSS' },
+    description: 'Dahi Teknoloji hizmetleri, yazılım geliştirme süreçleri, fiyatlandırma, teknik destek ve proje süreleri hakkında sıkça sorulan soruların yanıtları.',
+    keywords: ['yazılım SSS', 'web geliştirme süreçleri', 'yazılım fiyatları', 'proje süresi', 'teknik destek SSS'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/faq`,
-      languages: { tr: `${BASE_URL}/tr/faq`, en: `${BASE_URL}/en/faq` },
     },
   };
 }
@@ -32,10 +31,14 @@ export default async function FaqPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'faq' });
-  const categories = t.raw('categories') as Array<{
+  const categoriesRaw = t.raw('categories') as Record<string, {
     title: string;
-    items: Array<{ q: string; a: string }>;
+    items: Record<string, { q: string; a: string }>;
   }>;
+  const categories = Object.values(categoriesRaw).map(c => ({
+    ...c,
+    items: Object.values(c.items),
+  }));
 
   // FAQ JSON-LD for Google rich results
   const allQuestions = categories.flatMap((c) => c.items);

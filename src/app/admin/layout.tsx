@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: { default: 'Yönetim Paneli', template: '%s | TechCo Yönetim' },
+  title: { default: 'Yönetim Paneli', template: '%s | Dahi Teknoloji Yönetim' },
   robots: { index: false, follow: false, noarchive: true, nosnippet: true },
 };
 

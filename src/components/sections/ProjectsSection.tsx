@@ -1,13 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 
 interface Project {
@@ -19,95 +17,67 @@ interface Project {
   category?: { translations: Array<{ name: string }> } | null;
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
-    setTilt({ x: y, y: x });
-  };
-
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
+function PhoneMockup({ project, index }: { project: Project; index: number }) {
+  // Stagger phones at different vertical positions for visual rhythm
+  const offset = [0, -30, 20, -20, 30, -10][index % 6] || 0;
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ delay: index * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ perspective: '1000px' }}
-      className="group"
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ delay: index * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      style={{ marginTop: `${offset}px` }}
+      className="group relative"
     >
-      <motion.div
-        className="relative overflow-hidden rounded-2xl bg-gray-100 shadow-sm hover:shadow-2xl transition-shadow duration-500"
-        style={{
-          transformStyle: 'preserve-3d',
-          rotateX: tilt.x,
-          rotateY: tilt.y,
-        }}
-        transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-      >
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.translations[0]?.title || ''}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" />
+      {/* Phone frame */}
+      <div className="relative mx-auto w-full max-w-[260px]">
+        <div className="relative rounded-[2.5rem] bg-gray-900 p-3 shadow-2xl shadow-purple-200/50 group-hover:shadow-purple-300/60 transition-shadow duration-500">
+          {/* Notch */}
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-20" />
 
-          <div className="absolute inset-0 p-6 flex flex-col justify-end">
-            {project.category && (
-              <div className="mb-auto">
-                <Badge variant="gradient" className="text-xs">
-                  {project.category.translations[0]?.name}
-                </Badge>
-              </div>
-            )}
+          {/* Screen */}
+          <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-white">
+            <Image
+              src={project.image}
+              alt={project.translations[0]?.title || ''}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              loading="lazy"
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+            />
 
-            <div className="flex flex-wrap gap-2 mb-3">
-              {project.technologies.slice(0, 3).map((tech) => (
-                <span key={tech} className="text-xs px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white/90 font-medium">
-                  {tech}
+            {/* External link overlay */}
+            {project.externalUrl && (
+              <a
+                href={project.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 bg-purple-900/0 group-hover:bg-purple-900/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+              >
+                <span className="bg-white text-purple-700 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-xl">
+                  Görüntüle <ExternalLink className="h-4 w-4" />
                 </span>
-              ))}
-            </div>
-
-            <h3 className="text-xl font-bold text-white mb-2">
-              {project.translations[0]?.title}
-            </h3>
-            <p className="text-gray-300 text-sm line-clamp-2">
-              {project.translations[0]?.description}
-            </p>
+              </a>
+            )}
           </div>
-
-          {project.externalUrl && (
-            <a
-              href={project.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-gray-900"
-            >
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          )}
         </div>
 
-        {/* 3D shine */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: `radial-gradient(circle at ${50 + tilt.y * 5}% ${50 - tilt.x * 5}%, rgba(255,255,255,0.12) 0%, transparent 50%)`,
-          }}
-        />
-      </motion.div>
+        {/* Title under phone */}
+        <div className="mt-5 text-center">
+          {project.category && (
+            <span className="text-xs font-medium text-purple-600 uppercase tracking-wider">
+              {project.category.translations[0]?.name}
+            </span>
+          )}
+          <h3 className="mt-1 text-lg font-bold text-gray-900">
+            {project.translations[0]?.title}
+          </h3>
+          <p className="mt-1 text-sm text-gray-500 line-clamp-2 px-2">
+            {project.translations[0]?.description}
+          </p>
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -116,18 +86,18 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
   const t = useTranslations('home.projects');
 
   return (
-    <section className="py-28">
+    <section className="py-28 bg-gradient-to-b from-purple-50/30 via-white to-purple-50/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t('badge')}
           title={t('title')}
           subtitle={t('subtitle')}
-          className="mb-16"
+          className="mb-20"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto pb-12">
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <PhoneMockup key={project.id} project={project} index={i} />
           ))}
         </div>
 

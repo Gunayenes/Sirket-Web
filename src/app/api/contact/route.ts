@@ -5,11 +5,13 @@ import { sendContactNotification, sendContactConfirmation } from '@/lib/email';
 import { rateLimit } from '@/lib/rate-limit';
 
 const schema = z.object({
-  name:    z.string().min(2),
-  email:   z.string().email(),
-  phone:   z.string().optional(),
-  subject: z.string().min(3),
-  message: z.string().min(10),
+  name:     z.string().min(2),
+  email:    z.string().email(),
+  phone:    z.string().optional(),
+  company:  z.string().optional(),
+  budget:   z.string().optional(),
+  services: z.array(z.string()).optional(),
+  message:  z.string().min(10),
 });
 
 export async function POST(req: NextRequest) {
@@ -21,11 +23,24 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const data = schema.parse(body);
 
-    const message = await prisma.contactMessage.create({ data });
+    const services = data.services?.length ? data.services.join(', ') : '';
+    const subject = data.company
+      ? `${data.company} — İletişim Formu`
+      : 'Web Sitesi İletişim Formu';
+
+    const message = await prisma.contactMessage.create({
+      data: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject,
+        message: `${data.message}${services ? `\n\nİlgilenilen Hizmetler: ${services}` : ''}${data.budget ? `\nBütçe: ${data.budget}` : ''}`,
+      },
+    });
 
     // Send emails (don't block response)
     Promise.all([
-      sendContactNotification(data),
+      sendContactNotification({ ...data, subject }),
       sendContactConfirmation(data.email, data.name),
     ]).catch(console.error);
 
@@ -37,13 +52,4 @@ export async function POST(req: NextRequest) {
     console.error(err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-}
-
-export async function GET(req: NextRequest) {
-  // Admin only: list messages
-  const messages = await prisma.contactMessage.findMany({
-    orderBy: { createdAt: 'desc' },
-    take: 50,
-  });
-  return NextResponse.json(messages);
 }

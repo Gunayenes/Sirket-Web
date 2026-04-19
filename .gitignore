@@ -35,3 +35,7 @@ public/uploads/
 
 # Vercel
 .vercel
+
+# Claude Code local settings
+.claude/
+CLAUDE.local.md

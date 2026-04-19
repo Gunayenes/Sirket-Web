@@ -166,36 +166,6 @@ model BlogPostTranslation {
   @@map("blog_post_translations")
 }
 
-// ─── Team ─────────────────────────────────────────────────────────────────────
-
-model TeamMember {
-  id           String                  @id @default(cuid())
-  photo        String?
-  email        String?
-  linkedin     String?
-  twitter      String?
-  order        Int                     @default(0)
-  isActive     Boolean                 @default(true)
-  createdAt    DateTime                @default(now())
-  updatedAt    DateTime                @updatedAt
-  translations TeamMemberTranslation[]
-
-  @@map("team_members")
-}
-
-model TeamMemberTranslation {
-  id         String     @id @default(cuid())
-  memberId   String
-  locale     String
-  name       String
-  role       String
-  bio        String?    @db.Text
-  member     TeamMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
-
-  @@unique([memberId, locale])
-  @@map("team_member_translations")
-}
-
 // ─── Contact & Quotes ────────────────────────────────────────────────────────
 
 model ContactMessage {

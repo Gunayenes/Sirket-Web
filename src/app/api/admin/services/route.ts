@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireAuth } from '@/lib/auth';
+import { revalidateTags } from '@/lib/cache';
 
 export async function GET(req: NextRequest) {
   const session = await requireAuth();
@@ -41,5 +42,6 @@ export async function POST(req: NextRequest) {
     include: { translations: true },
   });
 
+  revalidateTags('services');
   return NextResponse.json(service, { status: 201 });
 }

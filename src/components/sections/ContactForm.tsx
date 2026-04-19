@@ -11,11 +11,24 @@ import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { Button } from '@/components/ui/Button';
 
+const SERVICES = [
+  { key: 'web-ecommerce', label: 'Kurumsal Web & E-Ticaret' },
+  { key: 'mobile-apps', label: 'Mobil Uygulama' },
+  { key: 'custom-software', label: 'Özel Yazılım' },
+  { key: 'crm-erp', label: 'CRM / ERP' },
+  { key: 'ai-automation', label: 'Yapay Zeka & Otomasyon' },
+  { key: 'api-backend', label: 'API & Backend' },
+  { key: 'data-analytics', label: 'Veri Analizi' },
+  { key: 'support', label: 'Teknik Destek & Bakım' },
+];
+
 type FormData = {
   name: string;
   email: string;
   phone?: string;
-  subject: string;
+  company?: string;
+  budget?: string;
+  services: string[];
   message: string;
 };
 
@@ -23,18 +36,30 @@ export function ContactForm() {
   const t = useTranslations('contact.form');
   const tv = useTranslations('contact.validation');
   const [success, setSuccess] = useState(false);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const schema = useMemo(() => z.object({
-    name:    z.string().min(2, tv('nameRequired')),
-    email:   z.string().email(tv('emailInvalid')),
-    phone:   z.string().optional(),
-    subject: z.string().min(3, tv('subjectRequired')),
-    message: z.string().min(10, tv('messageRequired')),
+    name:     z.string().min(2, tv('nameRequired')),
+    email:    z.string().email(tv('emailInvalid')),
+    phone:    z.string().optional(),
+    company:  z.string().optional(),
+    budget:   z.string().optional(),
+    services: z.array(z.string()),
+    message:  z.string().min(10, tv('messageRequired')),
   }), [tv]);
 
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: { services: [] },
   });
+
+  const toggleService = (service: string) => {
+    const next = selectedServices.includes(service)
+      ? selectedServices.filter(s => s !== service)
+      : [...selectedServices, service];
+    setSelectedServices(next);
+    setValue('services', next);
+  };
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -46,9 +71,10 @@ export function ContactForm() {
       if (res.ok) {
         setSuccess(true);
         reset();
+        setSelectedServices([]);
       }
     } catch {
-      // Error handled below
+      // handled by UI
     }
   };
 
@@ -70,6 +96,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      {/* Kişi Bilgileri */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Input
           label={t('name')}
@@ -93,25 +120,50 @@ export function ContactForm() {
           {...register('phone')}
         />
         <Input
-          label={t('subject')}
-          placeholder={t('subjectPlaceholder')}
-          error={errors.subject?.message}
-          {...register('subject')}
+          label={t('company')}
+          placeholder={t('companyPlaceholder')}
+          {...register('company')}
         />
       </div>
+
+      {/* Hizmet Seçimi */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">{t('services')}</label>
+        <div className="flex flex-wrap gap-2">
+          {SERVICES.map(({ key, label }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => toggleService(key)}
+              className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all duration-200 ${
+                selectedServices.includes(key)
+                  ? 'bg-brand-600 text-white border-brand-600'
+                  : 'bg-white text-gray-600 border-gray-200 hover:border-brand-300 hover:text-brand-600'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Bütçe */}
+      <Input
+        label={t('budget')}
+        placeholder={t('budgetPlaceholder')}
+        {...register('budget')}
+      />
+
+      {/* Mesaj */}
       <Textarea
         label={t('message')}
         placeholder={t('messagePlaceholder')}
         error={errors.message?.message}
         {...register('message')}
-        className="min-h-[160px]"
+        className="min-h-[140px]"
       />
-      <Button
-        type="submit"
-        size="lg"
-        loading={isSubmitting}
-        className="w-full"
-      >
+
+      <Button type="submit" size="lg" loading={isSubmitting} className="w-full">
         {isSubmitting ? t('sending') : t('send')}
       </Button>
     </form>

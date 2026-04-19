@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireAuth } from '@/lib/auth';
+import { revalidateTags } from '@/lib/cache';
 
 export async function GET(req: NextRequest) {
   const session = await requireAuth();
@@ -11,14 +12,24 @@ export async function GET(req: NextRequest) {
   const perPage = Number(searchParams.get('_perPage') || 25);
   const skip = (page - 1) * perPage;
 
+  const pageFilter = searchParams.get('page');
+  const contentType = searchParams.get('contentType');
+  const isActive = searchParams.get('isActive');
+
+  const where: Record<string, unknown> = {};
+  if (pageFilter) where.page = pageFilter;
+  if (contentType) where.contentType = contentType;
+  if (isActive !== null) where.isActive = isActive === 'true';
+
   const [data, total] = await Promise.all([
     prisma.pageContent.findMany({
+      where,
       skip,
       take: perPage,
       orderBy: [{ page: 'asc' }, { order: 'asc' }],
       include: { translations: true },
     }),
-    prisma.pageContent.count(),
+    prisma.pageContent.count({ where }),
   ]);
 
   return NextResponse.json(data, {
@@ -41,5 +52,6 @@ export async function POST(req: NextRequest) {
     include: { translations: true },
   });
 
+  revalidateTags('page-contents');
   return NextResponse.json(content, { status: 201 });
 }

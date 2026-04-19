@@ -8,10 +8,10 @@ import {
   alpha,
 } from '@mui/material';
 import {
-  Construction, FolderOpen, Article, People,
-  Email, RequestQuote, OpenInNew, Add,
+  Construction, FolderOpen,
+  Email, RequestQuote, OpenInNew,
   CalendarMonth, AccessTime, ArrowForward,
-  TrendingUp, Visibility, Circle,
+  TrendingUp,
   Web, Edit as EditIcon,
 } from '@mui/icons-material';
 
@@ -19,8 +19,6 @@ interface DashboardData {
   stats: {
     totalServices: number;
     totalProjects: number;
-    totalPosts: number;
-    totalTeam: number;
     unreadMessages: number;
     pendingQuotes: number;
   };
@@ -30,12 +28,12 @@ interface DashboardData {
 
 const STATUS_MAP: Record<string, { label: string; color: string; bg: string }> = {
   UNREAD: { label: 'Okunmadı', color: '#ef4444', bg: '#fef2f2' },
-  READ: { label: 'Okundu', color: '#3b82f6', bg: '#eff6ff' },
+  READ: { label: 'Okundu', color: '#9333ea', bg: '#f5f3ff' },
   REPLIED: { label: 'Yanıtlandı', color: '#10b981', bg: '#ecfdf5' },
   ARCHIVED: { label: 'Arşivlendi', color: '#6b7280', bg: '#f3f4f6' },
   PENDING: { label: 'Bekliyor', color: '#f59e0b', bg: '#fffbeb' },
-  IN_REVIEW: { label: 'İnceleniyor', color: '#3b82f6', bg: '#eff6ff' },
-  QUOTED: { label: 'Teklif Verildi', color: '#8b5cf6', bg: '#f5f3ff' },
+  IN_REVIEW: { label: 'İnceleniyor', color: '#9333ea', bg: '#f5f3ff' },
+  QUOTED: { label: 'Teklif Verildi', color: '#8b5cf6', bg: '#faf5ff' },
   ACCEPTED: { label: 'Kabul Edildi', color: '#10b981', bg: '#ecfdf5' },
   REJECTED: { label: 'Reddedildi', color: '#ef4444', bg: '#fef2f2' },
 };
@@ -149,18 +147,15 @@ function ActivityItem({ name, subtitle, date, status, href }: {
 }
 
 const QUICK_ACTIONS = [
-  { label: 'Siteyi Görüntüle', href: '/tr', icon: Web, color: '#4f46e5' },
-  { label: 'Yeni Yazı', href: '#/blog-posts/create', icon: Add, color: '#10b981' },
+  { label: 'Siteyi Görüntüle', href: '/tr', icon: Web, color: '#7e22ce' },
   { label: 'Yeni Proje', href: '#/projects/create', icon: FolderOpen, color: '#f59e0b' },
   { label: 'Yeni Hizmet', href: '#/services/create', icon: Construction, color: '#8b5cf6' },
   { label: 'SEO Düzenle', href: '#/seo-entries', icon: EditIcon, color: '#ec4899' },
 ];
 
 const STAT_CONFIG = [
-  { key: 'totalServices', label: 'Hizmetler', icon: Construction, gradient: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)' },
+  { key: 'totalServices', label: 'Hizmetler', icon: Construction, gradient: 'linear-gradient(135deg, #7e22ce 0%, #9333ea 100%)' },
   { key: 'totalProjects', label: 'Projeler', icon: FolderOpen, gradient: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)' },
-  { key: 'totalPosts', label: 'Blog Yazıları', icon: Article, gradient: 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)' },
-  { key: 'totalTeam', label: 'Ekip Üyeleri', icon: People, gradient: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)' },
   { key: 'unreadMessages', label: 'Okunmamış Mesajlar', icon: Email, gradient: 'linear-gradient(135deg, #ef4444 0%, #f97171 100%)' },
   { key: 'pendingQuotes', label: 'Bekleyen Teklifler', icon: RequestQuote, gradient: 'linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)' },
 ] as const;
@@ -190,7 +185,7 @@ export function AdminDashboard() {
           p: 3.5,
           mb: 3,
           borderRadius: 4,
-          background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%)',
+          background: 'linear-gradient(135deg, #7e22ce 0%, #9333ea 50%, #a855f7 100%)',
           color: 'white',
           position: 'relative',
           overflow: 'hidden',
@@ -345,7 +340,7 @@ export function AdminDashboard() {
                 px: 2.5, pt: 2.5, pb: 1.5,
               }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                  <Avatar sx={{ width: 32, height: 32, bgcolor: '#f5f3ff' }}>
+                  <Avatar sx={{ width: 32, height: 32, bgcolor: '#faf5ff' }}>
                     <TrendingUp sx={{ fontSize: 18, color: '#8b5cf6' }} />
                   </Avatar>
                   <Box>
