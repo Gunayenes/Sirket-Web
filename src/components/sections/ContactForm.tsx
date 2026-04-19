@@ -46,6 +46,7 @@ export function ContactForm() {
     budget:   z.string().optional(),
     services: z.array(z.string()),
     message:  z.string().min(10, tv('messageRequired')),
+    website:  z.string().optional(), // honeypot — server rejects non-empty values
   }), [tv]);
 
   const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -96,6 +97,14 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      {/* Honeypot — hidden from humans, bots fill it and get rejected */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+        <label>
+          Website (leave blank)
+          <input type="text" tabIndex={-1} autoComplete="off" {...register('website' as never)} />
+        </label>
+      </div>
+
       {/* Kişi Bilgileri */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Input
